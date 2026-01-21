@@ -1,0 +1,18 @@
+[project]
+name = "survery-corinna-heinze"
+version = "0.1.0"
+description = "#TODO"
+authors = [
+    {name = "Corinna Heinze",email = "hei.cor@web.de"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "otree (>=6.0.4,<7.0.0)"
+]
+
+include = [{name = "survey_corinna_heinze", from =  "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
