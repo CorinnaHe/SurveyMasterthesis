@@ -76,16 +76,6 @@ This creates a virtual environment and installs all required packages.
 
 ---
 
-### 3. Activate the Poetry environment (optional)
-
-```bash
-poetry shell
-```
-
-*(All commands below also work without this if you prefix them with `poetry run`.)*
-
----
-
 ## Running the experiment (development)
 
 ### Start the oTree development server
@@ -111,17 +101,6 @@ poetry run otree resetdb
 ```
 
 ⚠️ This deletes all existing sessions and data.
-
----
-
-## Common oTree commands
-
-| Purpose          | Command                                |
-| ---------------- | -------------------------------------- |
-| Start dev server | `poetry run otree devserver`           |
-| Reset database   | `poetry run otree resetdb`             |
-| Open oTree shell | `poetry run otree shell`               |
-| Create a new app | `poetry run otree startapp <app_name>` |
 
 ---
 
