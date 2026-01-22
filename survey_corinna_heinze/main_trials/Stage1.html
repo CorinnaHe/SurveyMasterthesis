@@ -14,21 +14,35 @@
 
 <p><strong>Sociodemographic information</strong></p>
 <ul>
-    <li><strong>Age:</strong> {{ trial.feat_Age }}</li>
-    <li><strong>Occupation:</strong> {{ trial.feat_Occupation }}</li>
+    {% for f in features %}
+        {% if f.group == "Demographic information" %}
+            <li>
+                <strong>{{ f.label }}:</strong> {{ f.value }}
+            </li>
+        {% endif %}
+    {% endfor %}
 </ul>
 
 <p><strong>Financial situation</strong></p>
 <ul>
-    <li><strong>Annual income:</strong> {{ trial.feat_Annual_Income }}</li>
-    <li><strong>Outstanding debt:</strong> {{ trial.feat_Outstanding_Debt }}</li>
-    <li><strong>Monthly balance:</strong> {{ trial.feat_Monthly_Balance }}</li>
+    {% for f in features %}
+        {% if f.group == "Financial information" %}
+            <li>
+                <strong>{{ f.label }}:</strong> {{ f.value }}
+            </li>
+        {% endif %}
+    {% endfor %}
 </ul>
 
 <p><strong>Credit-related information</strong></p>
 <ul>
-    <li><strong>Number of credit cards:</strong> {{ trial.feat_Num_Credit_Card }}</li>
-    <li><strong>Interest rate:</strong> {{ trial.feat_Interest_Rate }}%</li>
+    {% for f in features %}
+        {% if f.group == "Credit information" %}
+            <li>
+                <strong>{{ f.label }}:</strong> {{ f.value }}
+            </li>
+        {% endif %}
+    {% endfor %}
 </ul>
 
 <hr>

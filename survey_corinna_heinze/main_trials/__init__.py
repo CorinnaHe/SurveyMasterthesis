@@ -3,6 +3,8 @@ from pathlib import Path
 import csv
 import random
 
+from utils import build_display_features
+
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "data" / "tasks_main_trials.csv"
 
@@ -150,9 +152,12 @@ class Stage1(Page):
             player.cp_contains_poor = trial["cp_standard_contains_poor"] == "True"
             player.cp_contains_standard = trial["cp_standard_contains_standard"] == "True"
 
+        display_features = build_display_features(trial)
+
         return dict(
             trial_number=player.round_number,
             trial=trial,
+            features=display_features,
         )
 
 
@@ -184,9 +189,11 @@ class Stage2(Page):
         ai_correct_predictions = int(round(player.point_pred_confidence * 100))
         ai_incorrect_predictions = 100 - ai_correct_predictions
 
+        display_features = build_display_features(trial)
         return dict(
             trial_number=player.round_number,
             trial=trial,
+            features=display_features,
             condition=player.participant.vars["condition"],
 
             # initial responses
