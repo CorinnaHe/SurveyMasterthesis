@@ -1,5 +1,5 @@
 [project]
-name = "survery-corinna-heinze"
+name = "survey-corinna-heinze"
 version = "0.1.0"
 description = "#TODO"
 authors = [
@@ -12,7 +12,6 @@ dependencies = [
     "otree (>=6.0.4,<7.0.0)"
 ]
 
-include = [{name = "survey_corinna_heinze", from =  "src"}]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
