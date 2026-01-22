@@ -16,11 +16,11 @@ DECISION_LABELS = {
 }
 
 CONFIDENCE_LABELS = {
-    1: "Not confident at all",
-    2: "Slightly confident",
-    3: "Moderately confident",
-    4: "Very confident",
-    5: "Completely confident",
+    1: "1 - Not confident at all",
+    2: "2 - Slightly confident",
+    3: "3 - Moderately confident",
+    4: "4 - Very confident",
+    5: "5 - Completely confident",
 }
 
 
@@ -74,11 +74,11 @@ class Player(BasePlayer):
     initial_confidence = models.IntegerField(
         label="How confident are you in your decision?",
         choices=[
-            [1, "Not confident at all"],
-            [2, "Slightly confident"],
-            [3, "Moderately confident"],
-            [4, "Very confident"],
-            [5, "Completely confident"],
+            [1, "1 - Not confident at all"],
+            [2, "2 - Slightly confident"],
+            [3, "3 - Moderately confident"],
+            [4, "4 - Very confident"],
+            [5, "5 - Completely confident"],
         ],
         widget=widgets.RadioSelectHorizontal,
     )
@@ -97,11 +97,11 @@ class Player(BasePlayer):
     final_confidence = models.IntegerField(
         label="How confident are you in your final decision?",
         choices=[
-            [1, "Not confident at all"],
-            [2, "Slightly confident"],
-            [3, "Moderately confident"],
-            [4, "Very confident"],
-            [5, "Completely confident"],
+            [1, "1 - Not confident at all"],
+            [2, "2 - Slightly confident"],
+            [3, "3 - Moderately confident"],
+            [4, "4 - Very confident"],
+            [5, "5 - Completely confident"],
         ],
         widget=widgets.RadioSelectHorizontal,
     )

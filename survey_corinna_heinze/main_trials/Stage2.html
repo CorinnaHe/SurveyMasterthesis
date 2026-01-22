@@ -2,6 +2,7 @@
 {% load otree %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
 
 <h2>Main Trial {{ trial_number }} – Stage 2: Final Decision</h2>
 
@@ -112,9 +113,12 @@ and
 <!-- Final decision -->
 <!-- ========================= -->
 
-{{ formfield 'final_decision' }}
+<div class="question-box">
+    {{ formfield 'final_decision' }}
+</div>
 
 <hr>
+
 <p>
 You <strong>previously</strong> reported your confidence as:
 </p>
@@ -123,7 +127,9 @@ You <strong>previously</strong> reported your confidence as:
 
 <br>
 
-{{ formfield 'final_confidence' }}
+<div class="question-box">
+    {{ formfield 'final_confidence' }}
+</div>
 
 <button class="otree-btn-next">Continue</button>
 

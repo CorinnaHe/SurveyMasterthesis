@@ -2,6 +2,7 @@
 {% load otree %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
 
 <h2>Background Questions</h2>
 
@@ -9,31 +10,53 @@
 Finally, we would like to ask you a few questions about your background and experience.
 </p>
 
-{{ formfield 'age' }}
+<div class="question-box">
+    {{ formfield 'age' }}
+</div>
 
 <hr>
 
-{{ formfield 'gender' }}
-{{ formfield 'education' }}
+<div class="question-box">
+    {{ formfield 'gender' }}
+</div>
+
+<div class="question-box">
+    {{ formfield 'education' }}
+</div>
 
 <hr>
 
 <h3>Experience with AI</h3>
 
-{{ formfield 'ai_literacy1' }}
-{{ formfield 'ai_literacy2' }}
-{{ formfield 'ai_literacy3' }}
-{{ formfield 'ai_literacy4' }}
+<div class="question-box">
+    {{ formfield 'ai_literacy1' }}
+</div>
+
+<div class="question-box">
+    {{ formfield 'ai_literacy2' }}
+</div>
+
+<div class="question-box">
+    {{ formfield 'ai_literacy3' }}
+</div>
+
+<div class="question-box">
+    {{ formfield 'ai_literacy4' }}
+</div>
 
 <hr>
 
 <h3>Risk Attitudes</h3>
 
-{{ formfield 'risk_aversion' }}
+<div class="question-box">
+    {{ formfield 'risk_aversion' }}
+</div>
 
 <hr>
 
-{{ formfield 'domain_experience' }}
+<div class="question-box">
+    {{ formfield 'domain_experience' }}
+</div>
 
 <button class="otree-btn-next">Continue</button>
 

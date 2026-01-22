@@ -1,0 +1,18 @@
+<style>
+body {
+    background-color: red !important;
+}
+
+
+.question-box {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.question-box .otree-form-errors {
+    margin-top: 10px;
+}
+</style>

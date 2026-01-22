@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block content %}
-
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
 <!-- ========================= -->
 <!-- Q2_task_instructions -->
 <!-- ========================= -->
@@ -64,8 +64,9 @@ The AI provides support, but it does not decide for you.
 <!-- ========================= -->
 
 <h3>Comprehension Check</h3>
-
-{{ formfield 'check_decision_authority' }}
+<div class="question-box">
+    {{ formfield 'check_decision_authority' }}
+</div>
 
 <hr>
 
@@ -143,8 +144,9 @@ but to use its assessment as <strong>decision support</strong> when making your 
 <!-- ========================= -->
 
 <h3>Comprehension Check</h3>
-
-{{ formfield 'check_model_understanding' }}
+<div class="question-box">
+    {{ formfield 'check_model_understanding' }}
+</div>
 
 <hr>
 

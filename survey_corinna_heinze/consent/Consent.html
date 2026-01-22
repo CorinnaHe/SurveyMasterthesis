@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block content %}
-
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
 <h2>Informed Consent</h2>
 
 <p>
@@ -45,7 +45,9 @@ By continuing, you confirm that:
 
 <hr>
 
-{{ formfields }}
+<div class="question-box">
+    {{ formfields }}
+</div>
 
 <button class="otree-btn-next">Continue</button>
 

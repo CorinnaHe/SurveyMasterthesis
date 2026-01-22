@@ -2,6 +2,7 @@
 {% load otree %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
 
 <h2>Comprehension Question</h2>
 
@@ -9,7 +10,9 @@
 Please answer the following question about the AI system used in this study.
 </p>
 
-{{ formfield 'manipulation_check' }}
+<div class="question-box">
+    {{ formfield 'manipulation_check' }}
+</div>
 
 <button class="otree-btn-next">Continue</button>
 
