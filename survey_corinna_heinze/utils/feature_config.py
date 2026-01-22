@@ -27,7 +27,7 @@ FEATURE_CONFIG = {
     "feat_Interest_Rate": {
         "label": "Interest rate",
         "formatter": format_percentage,
-        "group": "Financial information",
+        "group": "Credit information",
         "order": 4,
     },
     "feat_Age": {
@@ -39,7 +39,7 @@ FEATURE_CONFIG = {
     "feat_Num_Credit_Card": {
         "label": "Number of credit cards",
         "formatter": format_int,
-        "group": "Demographic information",
+        "group": "Credit information",
         "order": 6,
     },
     "feat_Occupation": {
