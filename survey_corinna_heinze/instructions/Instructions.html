@@ -1,0 +1,233 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+
+<!-- ========================= -->
+<!-- Q2_task_instructions -->
+<!-- ========================= -->
+
+<h2>Your Task</h2>
+
+<p>
+In this study, you will take the role of a bank employee assessing credit applications.
+</p>
+
+<p>
+In each case, you will see information about an applicant, such as income, debt, and employment details.
+</p>
+
+<p>
+Your task is to classify each applicant into one of the following categories:
+</p>
+
+<ul>
+    <li>Poor creditworthiness</li>
+    <li>Standard creditworthiness</li>
+    <li>Good creditworthiness</li>
+</ul>
+
+<p>
+Please make each decision carefully based on the information shown.
+</p>
+
+<hr>
+
+<!-- ========================= -->
+<!-- Q2_two_stage_decision_process -->
+<!-- ========================= -->
+
+<h3>How Each Case Works</h3>
+
+<p>
+Each case consists of <strong>two stages</strong>:
+</p>
+
+<p><strong>Stage 1:</strong><br>
+You will first make a decision <strong>based only on the applicant information</strong>, without any AI support.
+</p>
+
+<p><strong>Stage 2:</strong><br>
+After that, you will see an <strong>AI-based assessment</strong> of the same case.
+You can then <strong>keep or change</strong> your decision.
+</p>
+
+<p><strong>Important:</strong><br>
+You always make the <strong>final decision</strong>.<br>
+The AI provides support, but it does not decide for you.
+</p>
+
+<hr>
+
+<!-- ========================= -->
+<!-- Q2_check_decision_authority -->
+<!-- ========================= -->
+
+<h3>Comprehension Check</h3>
+
+{{ formfield 'check_decision_authority' }}
+
+<hr>
+
+<!-- ========================= -->
+<!-- Q2_feature_overview -->
+<!-- ========================= -->
+
+<h3>Applicant Information Overview</h3>
+
+<p>
+In each case, you will be shown information about an applicant.
+Below is an overview of the types of information you will see and what they represent.
+</p>
+
+<p><strong>Sociodemographic information</strong></p>
+<ul>
+    <li><strong>Age:</strong> Age of the individual in years</li>
+    <li><strong>Occupation:</strong> Occupational category of the individual</li>
+</ul>
+
+<p><strong>Financial situation</strong></p>
+<ul>
+    <li><strong>Annual income:</strong> Annual gross income of the individual</li>
+    <li><strong>Outstanding debt:</strong> Total amount of outstanding financial liabilities</li>
+    <li><strong>Monthly balance:</strong> Average monthly account balance</li>
+</ul>
+
+<p><strong>Credit-related information</strong></p>
+<ul>
+    <li><strong>Number of credit cards:</strong> Number of credit cards currently held</li>
+    <li>
+        <strong>Interest rate:</strong>
+        The percentage charged on the applicant’s existing credit, which determines how much extra they have to pay on borrowed money over time.
+        A higher interest rate means borrowing is more expensive for the applicant.
+    </li>
+</ul>
+
+<hr>
+
+<!-- ========================= -->
+<!-- Q2_model_explanation -->
+<!-- ========================= -->
+
+<h3>About the AI System</h3>
+
+<p>
+The AI system is trained on past credit decisions and looks for patterns in financial information.
+</p>
+
+<p>
+For each applicant, it considers the same factors that will be shown to you, such as annual income, outstanding debt, and interest rates.
+</p>
+
+<p>
+Some factors tend to influence the AI’s assessment more strongly than others.
+The visualization below shows the <strong>most influential factors on average across many cases</strong>.
+</p>
+
+<!-- Placeholder for image -->
+<p><em>[Visualization of influential factors will be shown here]</em></p>
+
+<p>
+Importantly, the AI does <strong>not always make correct predictions</strong>.
+</p>
+
+<p>
+Your task is therefore <strong>not</strong> to follow the AI automatically,
+but to use its assessment as <strong>decision support</strong> when making your final judgment.
+</p>
+
+<hr>
+
+<!-- ========================= -->
+<!-- Q2_check_model_understanding -->
+<!-- ========================= -->
+
+<h3>Comprehension Check</h3>
+
+{{ formfield 'check_model_understanding' }}
+
+<hr>
+
+<!-- ========================= -->
+<!-- Q2_condition_explanation -->
+<!-- ========================= -->
+
+<h3>How the AI Communicates Its Assessment</h3>
+
+{% if condition == "C1" %}
+
+<p>
+To assist your decision, an AI model has been trained to assess applicants based on patterns learned from similar past cases.
+</p>
+
+<p>
+For each case, the model provides a <strong>single suggested outcome</strong> that it considers most likely.
+</p>
+
+<p>
+The model does <strong>not always make correct predictions</strong>, and its suggestion may be wrong in some cases.
+</p>
+
+{% elif condition == "C2" %}
+
+<p>
+To assist your decision, an AI model has been trained to assess applicants based on patterns learned from data.
+</p>
+
+<p>
+For each case, the model provides a <strong>single suggested outcome</strong>.
+</p>
+
+<p>
+In addition, the model reports how often this type of prediction is expected to be correct
+<strong>in similar situations</strong>, using a frequency-based description.
+</p>
+
+<p>
+For example, “82 out of 100 cases” means that, in situations like this one,
+the model’s suggestion is expected to be correct in about 82 cases and incorrect in about 18 cases.
+</p>
+
+<p>
+This information describes the model’s <strong>uncertainty about its prediction</strong>,
+not a guarantee for this specific decision.
+</p>
+
+<p>
+In each case, you should use your <strong>own judgment</strong> and make the final decision,
+even if you disagree with the AI’s suggestion.
+</p>
+
+{% elif condition == "C3" %}
+
+<p>
+To assist your decision, an AI model has been trained to assess applicants based on patterns learned from similar past cases.
+</p>
+
+<p>
+For each case, the model provides a <strong>shortlist of possible outcomes</strong> that it considers plausible.
+</p>
+
+<p>
+The model has been tested, and in <strong>95 of 100 similar past cases</strong>,
+the true outcome was <strong>included in this shortlist</strong>.
+</p>
+
+<p>
+When the AI presents <strong>more possible outcomes</strong>, this reflects that the case is
+<strong>more ambiguous for the model</strong>, based on similar past cases.
+When it presents <strong>fewer outcomes</strong>, the model is <strong>more selective</strong> in its suggestions.
+</p>
+
+<p>
+The order of the outcomes does <strong>not</strong> indicate which answer is most likely,
+so please consider all of the options equally.
+</p>
+
+{% endif %}
+
+<hr>
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

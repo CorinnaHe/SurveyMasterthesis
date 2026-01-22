@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+
+<h2>Informed Consent</h2>
+
+<p>
+You are invited to participate in an academic research study conducted as part of a Master’s thesis at a German public university.
+</p>
+
+<p>
+The purpose of this study is to examine human decision-making in a financial context. You will be asked to evaluate fictional credit applications and make judgments based on the information provided. Some decisions will include support from an AI-based system.
+</p>
+
+<p>
+Participation is voluntary. You may withdraw from the study at any time without providing a reason and without any negative consequences.
+</p>
+
+<p>
+The study does <strong>not</strong> collect any directly identifying personal data. All responses are processed anonymously and used exclusively for academic research purposes in accordance with the General Data Protection Regulation (GDPR).
+</p>
+
+<p>
+Data will be stored securely and will only be accessible to the researchers involved in this project. The data will be retained only as long as necessary for research purposes.
+</p>
+
+<p>
+The study takes approximately <strong>10–15 minutes</strong> to complete.
+</p>
+
+<p>
+If you have questions about this study or about your data, you may contact the researcher via the contact information provided on the recruitment platform.
+</p>
+
+<p>
+By continuing, you confirm that:
+</p>
+
+<ul>
+    <li>You are at least 18 years old</li>
+    <li>You have read and understood the information above</li>
+    <li>You voluntarily agree to participate in this study</li>
+</ul>
+
+<hr>
+
+{{ formfields }}
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

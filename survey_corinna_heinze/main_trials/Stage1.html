@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+
+<h2>Main Trial {{ trial_number }} – Stage 1: Initial Decision</h2>
+
+<!-- ========================= -->
+<!-- MTk_features -->
+<!-- ========================= -->
+
+<h3>Applicant {{ trial_number }}</h3>
+
+<p><strong>Sociodemographic information</strong></p>
+<ul>
+    <li><strong>Age:</strong> {{ trial.feat_Age }}</li>
+    <li><strong>Occupation:</strong> {{ trial.feat_Occupation }}</li>
+</ul>
+
+<p><strong>Financial situation</strong></p>
+<ul>
+    <li><strong>Annual income:</strong> {{ trial.feat_Annual_Income }}</li>
+    <li><strong>Outstanding debt:</strong> {{ trial.feat_Outstanding_Debt }}</li>
+    <li><strong>Monthly balance:</strong> {{ trial.feat_Monthly_Balance }}</li>
+</ul>
+
+<p><strong>Credit-related information</strong></p>
+<ul>
+    <li><strong>Number of credit cards:</strong> {{ trial.feat_Num_Credit_Card }}</li>
+    <li><strong>Interest rate:</strong> {{ trial.feat_Interest_Rate }}%</li>
+</ul>
+
+<hr>
+
+<!-- ========================= -->
+<!-- MTk_initial_decision -->
+<!-- ========================= -->
+
+{{ formfield 'initial_decision' }}
+
+<hr>
+
+<!-- ========================= -->
+<!-- MTk_initial_confidence -->
+<!-- ========================= -->
+
+{{ formfield 'initial_confidence' }}
+
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

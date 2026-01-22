@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+
+<h2>Comprehension Question</h2>
+
+<p>
+Please answer the following question about the AI system used in this study.
+</p>
+
+{{ formfield 'manipulation_check' }}
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

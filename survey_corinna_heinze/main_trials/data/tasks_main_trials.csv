@@ -1,0 +1,16 @@
+case_id,feat_Outstanding_Debt,feat_Interest_Rate,feat_Monthly_Balance,feat_Annual_Income,feat_Age,feat_Occupation,feat_Num_Credit_Card,y_true,point_pred_cal,point_pred_cal_correct,point_pred_confidence_cal_prediction,cp_standard_set_size,cp_standard_contains_good,cp_standard_contains_poor,cp_standard_contains_standard,cp_standard_contains_true,cp_standard_point_consistency,confidence_bin_point_pred
+5629,1165.77,6.0,295.23529087237966,20496.79,37.0,Media_Manager,3.0,standard,standard,True,0.86002916,1,False,False,True,True,True,high_confidence
+119,197.92,18.0,351.438716627328,32967.94,33.0,Journalist,4.0,standard,standard,True,0.9322873,1,False,False,True,True,True,high_confidence
+7907,1612.7,34.0,311.66390057608544,31506.9,34.0,Lawyer,10.0,standard,poor,False,0.78147775,2,False,True,True,True,/,medium_confidence
+11346,2075.58,21.0,321.4953728088567,64404.16,29.0,Developer,8.0,standard,poor,False,0.83154356,2,False,True,True,True,/,medium_confidence
+12108,2228.91,27.0,131.58201571453614,33610.36,22.0,Lawyer,5.0,poor,poor,True,0.83154356,1,False,True,False,True,True,medium_confidence
+10791,2223.59,34.0,293.2670615778803,15905.25,25.0,Media_Manager,4.0,poor,poor,True,0.8320311,1,False,True,False,True,True,medium_confidence
+15170,1137.33,7.0,243.15958011930752,17926.7,28.0,Media_Manager,3.0,standard,standard,True,0.717377,3,True,True,True,True,True,medium_confidence
+7776,699.11,5.0,477.9509445872711,42400.7,32.0,Entrepreneur,5.0,poor,standard,False,0.4347168,3,True,True,True,True,/,low_confidence
+8425,852.62,10.0,627.9643158719099,75524.26,28.0,Developer,5.0,standard,standard,True,0.5847118,3,True,True,True,True,True,low_confidence
+8872,393.39,12.0,368.492521438387,41115.08,53.0,Musician,7.0,standard,standard,True,0.5242442,2,True,False,True,True,True,low_confidence
+5082,2842.68,32.0,240.564846110882,14387.88,26.0,Lawyer,6.0,poor,poor,True,0.58773553,2,False,True,True,True,True,low_confidence
+15335,512.38,10.0,327.31686744999166,34212.01,38.0,Teacher,5.0,standard,standard,True,0.7902001,2,True,False,True,True,True,medium_confidence
+9110,888.82,6.0,391.1837937134448,28131.62,41.0,Journalist,4.0,poor,standard,False,0.8233657,2,True,False,True,False,False,medium_confidence
+5674,1590.4,26.0,288.6550698708156,9917.285,40.0,Journalist,5.0,poor,poor,True,0.7523917,2,False,True,True,True,True,medium_confidence
+8985,97.33,5.0,257.43355052578863,25780.78,29.0,Developer,6.0,poor,standard,False,0.86166245,1,False,False,True,False,False,high_confidence

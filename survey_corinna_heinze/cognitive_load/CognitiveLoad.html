@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+
+<h2>Task Evaluation</h2>
+
+<p>
+Please answer the following question about your experience during the task.
+</p>
+
+{{ formfield 'cognitive_load_mental' }}
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+
+<h2>Background Questions</h2>
+
+<p>
+Finally, we would like to ask you a few questions about your background and experience.
+</p>
+
+{{ formfield 'age' }}
+
+<hr>
+
+{{ formfield 'gender' }}
+{{ formfield 'education' }}
+
+<hr>
+
+<h3>Experience with AI</h3>
+
+{{ formfield 'ai_literacy1' }}
+{{ formfield 'ai_literacy2' }}
+{{ formfield 'ai_literacy3' }}
+{{ formfield 'ai_literacy4' }}
+
+<hr>
+
+<h3>Risk Attitudes</h3>
+
+{{ formfield 'risk_aversion' }}
+
+<hr>
+
+{{ formfield 'domain_experience' }}
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

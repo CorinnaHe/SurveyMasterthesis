@@ -1,0 +1,4 @@
+case_id,feat_Outstanding_Debt,feat_Interest_Rate,feat_Monthly_Balance,feat_Annual_Income,feat_Age,feat_Occupation,feat_Num_Credit_Card,y_true,point_pred_cal,point_pred_cal_correct,point_pred_confidence_cal_prediction,cp_standard_set_size,cp_standard_contains_good,cp_standard_contains_poor,cp_standard_contains_standard,cp_standard_contains_true,cp_standard_point_consistency,confidence_bin_point_pred
+5629,1165.77,6.0,295.23529087237966,20496.79,37.0,Media_Manager,3.0,standard,standard,True,0.86002916,1,False,False,True,True,True,high_confidence
+119,197.92,18.0,351.438716627328,32967.94,33.0,Journalist,4.0,standard,standard,True,0.9322873,1,False,False,True,True,True,high_confidence
+7907,1612.7,34.0,311.66390057608544,31506.9,34.0,Lawyer,10.0,standard,poor,False,0.78147775,2,False,True,True,True,/,medium_confidence

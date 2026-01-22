@@ -6,7 +6,8 @@ authors = [
     {name = "Corinna Heinze",email = "hei.cor@web.de"}
 ]
 readme = "README.md"
-requires-python = ">=3.11"
+package-mode = false
+requires-python = "^3.11"
 dependencies = [
     "otree (>=6.0.4,<7.0.0)"
 ]
