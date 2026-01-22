@@ -31,9 +31,9 @@ class Player(BasePlayer):
     check_model_understanding = models.IntegerField(
         label="According to the explanation, which factors had the strongest influence on the AI’s assessment across cases?",
         choices=[
-            [1, "SHAP val1"],
-            [2, "SHAP val2"],
-            [3, "SHAP val3"],
+            [1, "Monthly Income"],
+            [2, "Interest Rate"],
+            [3, "Age"],
         ],
         widget=widgets.RadioSelect,
     )
