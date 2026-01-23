@@ -1,33 +1,24 @@
 from otree.api import *
-from pathlib import Path
 import csv
 import random
+from pathlib import Path
 
-from utils import build_display_features
+from trial_framework import (
+    CONFIDENCE_LABELS,
+    stage1_vars,
+    stage2_vars,
+)
 
+TRIAL_LABEL = "Main Task"
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "data" / "tasks_main_trials.csv"
 
 with open(DATA_FILE, encoding="utf-8") as f:
     TRIALS = list(csv.DictReader(f))
 
-DECISION_LABELS = {
-    1: "Poor creditworthiness",
-    2: "Standard creditworthiness",
-    3: "Good creditworthiness",
-}
-
-CONFIDENCE_LABELS = {
-    1: "1 - Not confident at all",
-    2: "2 - Slightly confident",
-    3: "3 - Moderately confident",
-    4: "4 - Very confident",
-    5: "5 - Completely confident",
-}
-
 
 class C(BaseConstants):
-    NAME_IN_URL = 'main_trials'
+    NAME_IN_URL = "main_trials"
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 15
 
@@ -36,13 +27,11 @@ class Subsession(BaseSubsession):
     pass
 
 
-def creating_session(Session):
-    for p in Session.get_players():
+def creating_session(session):
+    for p in session.get_players():
         if "trial_order" not in p.participant.vars:
             indices = list(range(len(TRIALS)))
             random.shuffle(indices)
-
-            # keep only as many as needed
             p.participant.vars["trial_order"] = indices[:C.NUM_ROUNDS]
 
 
@@ -75,13 +64,7 @@ class Player(BasePlayer):
 
     initial_confidence = models.IntegerField(
         label="How confident are you in your decision?",
-        choices=[
-            [1, "1 - Not confident at all"],
-            [2, "2 - Slightly confident"],
-            [3, "3 - Moderately confident"],
-            [4, "4 - Very confident"],
-            [5, "5 - Completely confident"],
-        ],
+        choices=list(CONFIDENCE_LABELS.items()),
         widget=widgets.RadioSelectHorizontal,
     )
 
@@ -98,115 +81,47 @@ class Player(BasePlayer):
 
     final_confidence = models.IntegerField(
         label="How confident are you in your final decision?",
-        choices=[
-            [1, "1 - Not confident at all"],
-            [2, "2 - Slightly confident"],
-            [3, "3 - Moderately confident"],
-            [4, "4 - Very confident"],
-            [5, "5 - Completely confident"],
-        ],
+        choices=list(CONFIDENCE_LABELS.items()),
         widget=widgets.RadioSelectHorizontal,
     )
 
 
 def get_trial(player):
-    """
-    Maps round_number -> randomized CSV row for this participant.
-    """
     order = player.participant.vars["trial_order"]
-    row_index = order[player.round_number - 1]
-    return TRIALS[row_index]
+    return TRIALS[order[player.round_number - 1]]
 
 
-# --------------------
-# Intro Page
-# --------------------
 class MainTrialsIntro(Page):
     @staticmethod
     def is_displayed(player):
         return player.round_number == 1
 
 
-# --------------------
-# Stage 1 Page
-# --------------------
 class Stage1(Page):
     form_model = "player"
     form_fields = ["initial_decision", "initial_confidence"]
+    template_name = "trial_framework/Stage1.html"
 
     @staticmethod
     def vars_for_template(player):
-        trial = get_trial(player)
-
-        # store internal values once
-        if player.field_maybe_none("case_id") is None:
-            player.case_id = int(trial["case_id"])
-            player.y_true = trial["y_true"]
-
-            player.point_pred_cal = trial["point_pred_cal"]
-            player.point_pred_confidence = float(
-                trial["point_pred_confidence_cal_prediction"]
-            )
-
-            player.cp_contains_good = trial["cp_standard_contains_good"] == "True"
-            player.cp_contains_poor = trial["cp_standard_contains_poor"] == "True"
-            player.cp_contains_standard = trial["cp_standard_contains_standard"] == "True"
-
-        display_features = build_display_features(trial)
-
-        return dict(
-            trial_number=player.round_number,
-            trial=trial,
-            features=display_features,
+        return stage1_vars(
+            player,
+            get_trial(player),
+            trial_label=TRIAL_LABEL,
         )
 
 
-# --------------------
-# Stage 2 Page
-# --------------------
 class Stage2(Page):
     form_model = "player"
     form_fields = ["final_decision", "final_confidence"]
+    template_name = "trial_framework/Stage2.html"
 
     @staticmethod
     def vars_for_template(player):
-        trial = get_trial(player)
-
-        initial_decision_label = DECISION_LABELS.get(player.initial_decision)
-        initial_confidence_label = CONFIDENCE_LABELS.get(player.initial_confidence)
-
-        # build CP set labels
-        cp_labels = []
-        if player.cp_contains_good:
-            cp_labels.append("Good creditworthiness")
-        if player.cp_contains_standard:
-            cp_labels.append("Standard creditworthiness")
-        if player.cp_contains_poor:
-            cp_labels.append("Poor creditworthiness")
-
-        cp_set_text = ", ".join(cp_labels)
-
-        ai_correct_predictions = int(round(player.point_pred_confidence * 100))
-        ai_incorrect_predictions = 100 - ai_correct_predictions
-
-        display_features = build_display_features(trial)
-        return dict(
-            trial_number=player.round_number,
-            trial=trial,
-            features=display_features,
-            condition=player.participant.vars["condition"],
-
-            # initial responses
-            initial_decision_label=initial_decision_label,
-            initial_confidence_label=initial_confidence_label,
-
-            # AI outputs
-            ai_label=player.point_pred_cal,
-            ai_correct_predictions=ai_correct_predictions,
-            ai_incorrect_predictions=ai_incorrect_predictions,
-
-            # CP (READY FOR DISPLAY)
-            cp_set_text=cp_set_text,
+        return stage2_vars(
+            player,
+            get_trial(player),
+            trial_label=TRIAL_LABEL,
         )
 
 
