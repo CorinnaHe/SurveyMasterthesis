@@ -3,18 +3,41 @@
 
 {% block content %}
 
-<h2>Thank You</h2>
+<h2>Thank You for Your Participation</h2>
 
 <p>
-Thank you for participating in this study.
+Thank you for taking part in this study. Your responses have been recorded successfully.
 </p>
 
 <p>
-Your responses have been recorded successfully.
+<strong>Incentive Reminder:</strong><br>
+The <strong>three participants with the highest number of correct final decisions</strong>
+will each receive a <strong>€25 Amazon voucher</strong>.
 </p>
 
 <p>
-You may now close this window.
+Vouchers will be sent <strong>after the study has been fully completed and data collection is closed</strong>.
+They will <strong>not</strong> be sent immediately after participation.
 </p>
+
+<p>
+If you would like to be contacted in case you are among the winners, you may
+<strong>optionally</strong> provide an email address below.
+</p>
+
+<ul>
+    <li>Providing an email address is <strong>voluntary</strong>.</li>
+    <li>The email address will be used <strong>only</strong> to send the voucher.</li>
+    <li>The email address will <strong>not</strong> be linked to your survey responses.</li>
+    <li>Email addresses will be deleted after the vouchers have been distributed.</li>
+</ul>
+
+<hr>
+
+<div class="question-box">
+    {{ formfield 'contact_email' }}
+</div>
+
+<button class="otree-btn-next">Submit E-Mail</button>
 
 {% endblock %}

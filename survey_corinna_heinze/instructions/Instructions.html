@@ -3,6 +3,7 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
 <!-- ========================= -->
 <!-- Q2_task_instructions -->
 <!-- ========================= -->
@@ -29,6 +30,38 @@ Your task is to classify each applicant into one of the following categories:
 
 <p>
 Please make each decision carefully based on the information shown.
+</p>
+
+<hr>
+
+<!-- ========================= -->
+<!-- Q2_incentive_information -->
+<!-- ========================= -->
+
+<h3>Performance-Based Incentive</h3>
+
+<p>
+As an additional thank-you for participating, this study includes a performance-based incentive:
+</p>
+
+<ul>
+    <li>
+        The <strong>three participants with the highest number of correct final decisions in Stage&nbsp;2</strong>
+        will each receive a <strong>€25 Amazon voucher</strong>.
+    </li>
+</ul>
+
+<p>
+In case of a tie, winners will be selected at random among participants with the same performance.
+</p>
+
+<p>
+Participation in the incentive is <strong>optional</strong> and does not affect your ability to take part in the study
+or to withdraw at any time.
+</p>
+
+<p>
+Details on how to receive the voucher (if applicable) will be provided at the end of the study.
 </p>
 
 <hr>
@@ -125,7 +158,11 @@ Some factors tend to influence the AI’s assessment more strongly than others.
 The visualization below shows the <strong>most influential factors on average across many cases</strong>.
 </p>
 
-<p><em><img src="{{ static 'images/shap_summary_bar.png' }}" alt="SHAP values" style="width:80%"></em></p>
+<p>
+<em>
+    <img src="{{ static 'images/shap_summary_bar.png' }}" alt="SHAP values" style="width:80%">
+</em>
+</p>
 
 <p>
 Importantly, the AI does <strong>not always make correct predictions</strong>.
