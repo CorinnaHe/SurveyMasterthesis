@@ -14,7 +14,7 @@ SESSION_CONFIGS = [
             "control_measures",
             "closing",
         ],
-        num_demo_participants=1,
+        num_demo_participants=6,
     ),
 ]
 
