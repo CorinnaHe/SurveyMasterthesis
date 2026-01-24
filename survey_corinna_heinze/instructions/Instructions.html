@@ -162,17 +162,29 @@ To assist your decision, an AI model has been trained to assess applicants based
 </p>
 
 <p>
-For each case, the model provides a <strong>single suggested outcome</strong> that it considers most likely.
+For each case, the model provides a <strong>single suggested outcome</strong>.
 </p>
 
 <p>
-The model does <strong>not always make correct predictions</strong>, and its suggestion may be wrong in some cases.
+Along with this suggestion, the model reports
+<strong>how often predictions of this type were correct in similar past cases</strong>,
+using a frequency-based description (for example, “82 out of 100 cases”).
+</p>
+
+<p>
+This information reflects the model’s <strong>uncertainty based on past data</strong>,
+not a guarantee for the current case.
+</p>
+
+<p>
+The model can make mistakes. You should therefore rely on your
+<strong>own judgment</strong> and make the final decision.
 </p>
 
 {% elif condition == "C2" %}
 
 <p>
-To assist your decision, an AI model has been trained to assess applicants based on patterns learned from data.
+To assist your decision, an AI model has been trained to assess applicants based on patterns learned from similar past cases.
 </p>
 
 <p>
@@ -180,22 +192,19 @@ For each case, the model provides a <strong>single suggested outcome</strong>.
 </p>
 
 <p>
-In addition, the model reports how often this type of prediction is expected to be correct
-<strong>in similar situations</strong>, using a frequency-based description.
+In addition, the model communicates its uncertainty using a
+<strong>qualitative confidence category</strong>
+(<em>low</em>, <em>medium</em>, or <em>high</em> confidence).
 </p>
 
 <p>
-For example, “82 out of 100 cases” means that, in situations like this one,
-the model’s suggestion is expected to be correct in about 82 cases and incorrect in about 18 cases.
+These confidence categories summarize how certain the model is about its prediction
+based on similar past cases, but they do <strong>not guarantee correctness</strong>
+for the current decision.
 </p>
 
 <p>
-This information describes the model’s <strong>uncertainty about its prediction</strong>,
-not a guarantee for this specific decision.
-</p>
-
-<p>
-In each case, you should use your <strong>own judgment</strong> and make the final decision,
+The model can be wrong. You should use your <strong>own judgment</strong> and make the final decision,
 even if you disagree with the AI’s suggestion.
 </p>
 
@@ -206,23 +215,33 @@ To assist your decision, an AI model has been trained to assess applicants based
 </p>
 
 <p>
-For each case, the model provides a <strong>shortlist of possible outcomes</strong> that it considers plausible.
+For each case, the model provides a <strong>set of multiple outcomes</strong> that it considers
+<strong>plausible</strong>, rather than recommending a single outcome.
 </p>
 
 <p>
-The model has been tested, and in <strong>95 of 100 similar past cases</strong>,
-the true outcome was <strong>included in this shortlist</strong>.
+The model has been evaluated on similar past cases. In about
+<strong>95 out of 100 cases</strong>, the true outcome was
+<strong>included in the set</strong> shown by the model.
 </p>
 
 <p>
-When the AI presents <strong>more possible outcomes</strong>, this reflects that the case is
-<strong>more ambiguous for the model</strong>, based on similar past cases.
-When it presents <strong>fewer outcomes</strong>, the model is <strong>more selective</strong> in its suggestions.
+When the AI presents <strong>more possible outcomes</strong>, this indicates that the case is
+<strong>more uncertain for the model</strong>.
+When it presents <strong>fewer outcomes</strong>, the model is
+<strong>more confident</strong> based on similar past cases.
 </p>
 
 <p>
-The order of the outcomes does <strong>not</strong> indicate which answer is most likely,
-so please consider all of the options equally.
+Your task is to make the final decision using your <strong>own judgment</strong>,
+considering the set as decision support rather than a single recommendation.
+</p>
+
+<p>
+<em>
+Note: The order of outcomes reflects how strongly the model associates them with the case,
+but all listed outcomes should be considered plausible.
+</em>
 </p>
 
 {% endif %}
