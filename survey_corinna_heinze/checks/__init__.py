@@ -37,6 +37,13 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
 
+    # attempt counters
+    attempts_decision_authority = models.IntegerField(initial=0)
+    attempts_model_understanding = models.IntegerField(initial=0)
+
+    # exit flag
+    failed_checks = models.BooleanField(initial=False)
+
 
 class Checks(Page):
     form_model = "player"
@@ -48,11 +55,42 @@ class Checks(Page):
     @staticmethod
     def error_message(player, values):
         errors = {}
+
+        # --- Question 1 ---
         if values["check_decision_authority"] != 3:
-            errors["check_decision_authority"] = "Please read the instructions carefully and select the correct answer."
+            attempts = player.field_maybe_none("attempts_decision_authority") or 0
+            attempts += 1
+            player.attempts_decision_authority = attempts
+
+            if attempts > 1:
+                player.failed_checks = True
+                return None
+
+            errors["check_decision_authority"] = (
+                "This answer is incorrect. Please read the instructions again and try once more."
+            )
+
+        # --- Question 2 ---
         if values["check_model_understanding"] != 2:
-            errors["check_model_understanding"] = "Please select the correct answer based on the explanation above."
+            attempts = player.field_maybe_none("attempts_model_understanding") or 0
+            attempts += 1
+            player.attempts_model_understanding = attempts
+
+            if attempts > 1:
+                player.failed_checks = True
+                return None
+
+            errors["check_model_understanding"] = (
+                "This answer is incorrect. Please review the explanation and try once more."
+            )
+
         return errors
 
 
-page_sequence = [Checks]
+class FailedChecks(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.failed_checks
+
+
+page_sequence = [Checks, FailedChecks]
