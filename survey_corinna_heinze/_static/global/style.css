@@ -3,6 +3,21 @@ body {
     background-color: red !important;
 }
 
+button {
+    border-radius: 5px;
+}
+
+.scale-table {
+    table-layout: fixed;
+    width: 100%;
+    background-color: #f5f5f5;
+    margin-bottom: 40px;
+}
+
+.scale-table label {
+    font-size: smaller;
+}
+
 
 .question-box {
     background-color: #f5f5f5;

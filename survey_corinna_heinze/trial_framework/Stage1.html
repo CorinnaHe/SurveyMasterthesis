@@ -61,9 +61,25 @@
 <!-- initial_confidence -->
 <!-- ========================= -->
 
-<div class="question-box">
-    {{ formfield 'initial_confidence' }}
-</div>
+<p>{{form.initial_confidence.label}}</p>
+<table class="table table-bordered text-center scale-table">
+    <tr>
+        {% for choice in form.initial_confidence %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <!-- Radio buttons -->
+        {% for choice in form.initial_confidence %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+    </tr>
+</table>
 
 <button class="otree-btn-next">Continue</button>
 

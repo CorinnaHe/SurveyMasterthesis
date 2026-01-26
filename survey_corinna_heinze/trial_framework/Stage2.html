@@ -138,9 +138,25 @@ You <strong>previously</strong> reported your confidence as:
 
 <br>
 
-<div class="question-box">
-    {{ formfield 'final_confidence' }}
-</div>
+<p>{{form.final_confidence.label}}</p>
+<table class="table table-bordered text-center scale-table">
+    <tr>
+        {% for choice in form.final_confidence %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <!-- Radio buttons -->
+        {% for choice in form.final_confidence %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+    </tr>
+</table>
 
 <button class="otree-btn-next">Continue</button>
 

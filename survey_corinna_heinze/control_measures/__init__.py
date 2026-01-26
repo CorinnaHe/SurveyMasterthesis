@@ -1,16 +1,6 @@
 from otree.api import *
 
-LIKERT_0_10_LITERACY = (
-    [[0, "0 – Strongly disagree"]]
-    + [[i, ""] for i in range(1, 10)]
-    + [[10, "10 – Strongly agree"]]
-)
-
-LIKERT_0_10_RISK = (
-    [[0, "0 – Not willing to take risks at all"]]
-    + [[i, ""] for i in range(1, 10)]
-    + [[10, "10 – Very willing to take risks"]]
-)
+LIKERT_0_10_LITERACY = [i for i in range (0, 11)]
 
 
 class C(BaseConstants):
@@ -98,11 +88,9 @@ class Player(BasePlayer):
         label=(
             "How do you see yourself? Are you generally a person who is fully prepared "
             "to take risks or do you try to avoid taking risks? "
-            "Please tick a box on the scale, where the value 0 means "
-            "‘not at all willing to take risks’ and the value 10 means "
-            "‘very willing to take risks.’"
+            "Please tick a box on the scale"
         ),
-        choices=LIKERT_0_10_RISK,
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
