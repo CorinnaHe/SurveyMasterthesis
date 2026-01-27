@@ -4,6 +4,20 @@
 {% block content %}
 <link rel="stylesheet" href="{{ static 'global/style.css' }}">
 
+<input type="hidden" name="page_duration_stage1" id="page_duration_stage1"/>
+
+<script>
+var startTime;
+window.onload = function() {
+    startTime = Date.now();
+};
+function getTime(){
+    var page_duration_stage1 = Date.now() - startTime;
+    document.getElementById('page_duration_stage1').value = page_duration_stage1/1000;
+}
+
+</script>
+
 <h2>{{ trial_label }} {{ trial_number }} – Stage 1: Initial Decision</h2>
 
 <!-- ========================= -->
@@ -81,6 +95,6 @@
     </tr>
 </table>
 
-<button class="otree-btn-next">Continue</button>
+<button class="otree-btn-next" onclick="getTime()">Continue</button>
 
 {% endblock %}
