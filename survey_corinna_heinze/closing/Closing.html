@@ -2,19 +2,50 @@
 {% load otree %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
 
-<h2>Thank You</h2>
+<h3>Thank You for Your Participation</h3>
 
 <p>
-Thank you for participating in this study.
+Thank you for taking part in this study. Your responses have been recorded successfully.
 </p>
 
 <p>
-Your responses have been recorded successfully.
+    You classified <strong>{{ num_correct }}/{{ num_total }}</strong>
+    applicants correctly.
 </p>
 
+<div class="instruction-box">
+    <p>
+    <strong>Incentive Reminder:</strong><br>
+    The three participants with the highest number of correct final decisions
+    will each receive a €25 Amazon voucher.
+    </p>
+
+    <p>
+    Vouchers will be sent after the study has been fully completed and data collection is closed.
+    They will not be sent immediately after participation.
+    </p>
+</div>
+
+
 <p>
-You may now close this window.
+If you would like to be contacted in case you are among the winners, you may
+optionally provide an email address below.
 </p>
+
+<ul>
+    <li>Providing an email address is voluntary.</li>
+    <li>The email address will be used only to send the voucher.</li>
+    <li>The email address will not be linked to your survey responses.</li>
+    <li>Email addresses will be deleted after the vouchers have been distributed.</li>
+</ul>
+
+<hr>
+
+{{ formfield 'contact_email' }}
+
+
+<button class="otree-btn-next" style="margin-left: revert;">Submit E-Mail</button>
 
 {% endblock %}

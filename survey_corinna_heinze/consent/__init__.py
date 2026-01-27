@@ -13,6 +13,11 @@ class Subsession(BaseSubsession):
     pass
 
 
+def creating_session(self):
+    if 'condition_counter' not in self.session.vars:
+        self.session.vars['condition_counter'] = 0
+
+
 class Group(BaseGroup):
     pass
 
@@ -40,7 +45,13 @@ class Consent(Page):
     @staticmethod
     def before_next_page(player, timeout_happened):
         if "condition" not in player.participant.vars:
-            player.participant.vars["condition"] = random.choice(["C1", "C2", "C3"])
+            counter = player.session.vars['condition_counter']
+
+            conditions = ["C1", "C2", "C3"]
+            assigned_condition = conditions[counter % len(conditions)]
+
+            player.participant.vars["condition"] = assigned_condition
+            player.session.vars['condition_counter'] += 1
 
 
 page_sequence = [Consent]

@@ -4,17 +4,232 @@
 {% block content %}
 <link rel="stylesheet" href="{{ static 'global/style.css' }}">
 
-<h2>Background Questions</h2>
-
 <p>
 Finally, we would like to ask you a few questions about your background and experience.
 </p>
 
+<h5>Experience with AI</h5>
+<p>{{form.ai_attitude.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.ai_attitude %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Strongly disagree</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.ai_attitude %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Strongly agree</td>
+    </tr>
+</table>
+
+<p>{{form.ai_trust.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.ai_trust %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Strongly disagree</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.ai_trust %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Strongly agree</td>
+    </tr>
+</table>
+
+<p>{{form.ai_literacy_sk9.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.ai_literacy_sk9 %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Strongly disagree</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.ai_literacy_sk9 %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Strongly agree</td>
+    </tr>
+</table>
+
+<p>{{form.ai_literacy_sk10.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.ai_literacy_sk10 %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Strongly disagree</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.ai_literacy_sk10 %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Strongly agree</td>
+    </tr>
+</table>
+
+<p>{{form.ai_literacy_ail2.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.ai_literacy_ail2 %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Strongly disagree</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.ai_literacy_ail2 %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Strongly agree</td>
+    </tr>
+</table>
+
+<p>{{form.ai_literacy_ue2.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.ai_literacy_ue2 %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Strongly disagree</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.ai_literacy_ue2 %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Strongly agree</td>
+    </tr>
+</table>
+
+<hr>
+<h5>Risk Aversion</h5>
+<p>{{form.risk_aversion.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.risk_aversion %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Not willing to take risks at all</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.risk_aversion %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Very willing to take risks</td>
+    </tr>
+</table>
+<hr>
+
+<div class="question-box">
+    {{ formfield 'domain_experience' }}
+</div>
+
+
 <div class="question-box">
     {{ formfield 'age' }}
 </div>
-
-<hr>
 
 <div class="question-box">
     {{ formfield 'gender' }}
@@ -24,38 +239,8 @@ Finally, we would like to ask you a few questions about your background and expe
     {{ formfield 'education' }}
 </div>
 
-<hr>
-
-<h3>Experience with AI</h3>
-
 <div class="question-box">
-    {{ formfield 'ai_literacy1' }}
-</div>
-
-<div class="question-box">
-    {{ formfield 'ai_literacy2' }}
-</div>
-
-<div class="question-box">
-    {{ formfield 'ai_literacy3' }}
-</div>
-
-<div class="question-box">
-    {{ formfield 'ai_literacy4' }}
-</div>
-
-<hr>
-
-<h3>Risk Attitudes</h3>
-
-<div class="question-box">
-    {{ formfield 'risk_aversion' }}
-</div>
-
-<hr>
-
-<div class="question-box">
-    {{ formfield 'domain_experience' }}
+    {{ formfield 'comment' }}
 </div>
 
 <button class="otree-btn-next">Continue</button>

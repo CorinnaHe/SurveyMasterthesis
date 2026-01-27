@@ -1,16 +1,6 @@
 from otree.api import *
 
-LIKERT_0_10_LITERACY = (
-    [[0, "0 – Strongly disagree"]]
-    + [[i, ""] for i in range(1, 10)]
-    + [[10, "10 – Strongly agree"]]
-)
-
-LIKERT_0_10_RISK = (
-    [[0, "0 – Not willing to take risks at all"]]
-    + [[i, ""] for i in range(1, 10)]
-    + [[10, "10 – Very willing to take risks"]]
-)
+LIKERT_0_10_LITERACY = [i for i in range (0, 11)]
 
 
 class C(BaseConstants):
@@ -66,27 +56,42 @@ class Player(BasePlayer):
     # AI literacy (0–10)
     # -----------------
 
-    ai_literacy1 = models.IntegerField(
-        label="I am familiar with AI-based applications that are used in everyday life.",
-        choices=LIKERT_0_10_LITERACY,
+    ai_literacy_sk9 = models.IntegerField(
+        label="I have knowledge of using AI output and interpreting it",
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
-    ai_literacy2 = models.IntegerField(
-        label="I can use AI-based applications to support my decisions in everyday situations.",
-        choices=LIKERT_0_10_LITERACY,
+    ai_literacy_sk10 = models.IntegerField(
+        label="I have knowledge of AI output limitations",
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
-    ai_literacy3 = models.IntegerField(
-        label="I understand that AI systems have both strengths and limitations.",
-        choices=LIKERT_0_10_LITERACY,
+    ai_literacy_ail2 = models.IntegerField(
+        label="I am knowledgeable about the steps involved in AI decision-making",
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
-    ai_literacy4 = models.IntegerField(
-        label="I can usually tell when a system or service is based on artificial intelligence.",
-        choices=LIKERT_0_10_LITERACY,
+    ai_literacy_ue2 = models.IntegerField(
+        label="I have experience in the usage of AI through frequent interactions in my everyday life",
+        choices=[i for i in range(1,8)],
+        widget=widgets.RadioSelectHorizontal,
+    )
+
+    # -----------------
+    # AI Trust & Attitude
+    # -----------------
+    ai_attitude = models.IntegerField(
+        label="The AI support was helpful for making my decisions.",
+        choices=[i for i in range(1,8)],
+        widget=widgets.RadioSelectHorizontal,
+    )
+
+    ai_trust = models.IntegerField(
+        label="I trust the AI system to provide reliable support for evaluating applicants’ creditworthiness.",
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
@@ -98,11 +103,9 @@ class Player(BasePlayer):
         label=(
             "How do you see yourself? Are you generally a person who is fully prepared "
             "to take risks or do you try to avoid taking risks? "
-            "Please tick a box on the scale, where the value 0 means "
-            "‘not at all willing to take risks’ and the value 10 means "
-            "‘very willing to take risks.’"
+            "Please tick a box on the scale"
         ),
-        choices=LIKERT_0_10_RISK,
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
@@ -124,18 +127,30 @@ class Player(BasePlayer):
     )
 
 
+    # -----------------
+    # Comment
+    # -----------------
+    comment = models.LongStringField(
+        label="Optional: If you would like to comment on anything, you can do so here.",
+        blank=True
+    )
+
+
 class ControlMeasures(Page):
     form_model = "player"
     form_fields = [
         "age",
         "gender",
         "education",
-        "ai_literacy1",
-        "ai_literacy2",
-        "ai_literacy3",
-        "ai_literacy4",
+        "ai_literacy_sk9",
+        "ai_literacy_sk10",
+        "ai_literacy_ail2",
+        "ai_literacy_ue2",
+        "ai_attitude",
+        "ai_trust",
         "risk_aversion",
         "domain_experience",
+        "comment",
     ]
 
 

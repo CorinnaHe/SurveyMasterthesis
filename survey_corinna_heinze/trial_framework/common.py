@@ -65,11 +65,13 @@ def stage2_vars(player, trial, trial_label):
         condition=player.participant.vars["condition"],
 
         initial_decision_label=DECISION_LABELS[player.initial_decision],
-        initial_confidence_label=CONFIDENCE_LABELS[player.initial_confidence],
 
         ai_label=player.point_pred_cal,
         ai_correct_predictions=ai_correct,
         ai_incorrect_predictions=100 - ai_correct,
+        ai_confidence_level=trial["confidence_bin_point_pred"].split("_", 1)[0],
 
-        cp_set_text=", ".join(cp_labels),
+        cp_set_text=trial["cp_standard_sorted_set"],
+        cp_coverage_correct=95,
+        cp_coverage_incorrect=5,
     )

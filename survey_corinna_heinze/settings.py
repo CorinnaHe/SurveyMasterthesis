@@ -7,14 +7,14 @@ SESSION_CONFIGS = [
         app_sequence=[
             "consent",
             "instructions",
+            "checks",
             "example_trials",
-            "manipulation_check",
             "main_trials",
             "cognitive_load",
             "control_measures",
             "closing",
         ],
-        num_demo_participants=1,
+        num_demo_participants=6,
     ),
 ]
 

@@ -16,51 +16,28 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    # comprehension checks
-    check_decision_authority = models.IntegerField(
-        label="Who makes the final decision in this task?",
-        choices=[
-            [1, "The AI system"],
-            [2, "You, based only on your own judgment"],
-            [3, "You, with the AI providing a recommendation"],
-            [4, "The system automatically combines your answer with the AI"],
-        ],
-        widget=widgets.RadioSelect,
-    )
-
-    check_model_understanding = models.IntegerField(
-        label="According to the explanation, which factors had the strongest influence on the AI’s assessment across cases?",
-        choices=[
-            [1, "Monthly Income"],
-            [2, "Interest Rate"],
-            [3, "Age"],
-        ],
-        widget=widgets.RadioSelect,
-    )
+    pass
 
 
 # PAGES
-class Instructions(Page):
+class TasksInstructions(Page):
     form_model = "player"
-    form_fields = [
-        "check_decision_authority",
-        "check_model_understanding",
-    ]
 
-    @staticmethod
-    def error_message(player, values):
-        errors = {}
-        if values["check_decision_authority"] != 3:
-            errors["check_decision_authority"] = "Please read the instructions carefully and select the correct answer."
-        if values["check_model_understanding"] != 2:
-            errors["check_model_understanding"] = "Please select the correct answer based on the explanation above."
-        return errors
+
+class AIInstructions(Page):
+    form_model = "player"
 
     @staticmethod
     def vars_for_template(player):
         return dict(
-            condition=player.participant.vars["condition"]
+            condition=player.participant.vars["condition"],
+            ai_label="Standard creditworthiness",
+            ai_correct_predictions=82,
+            ai_incorrect_predictions=18,
+            ai_confidence_level="high",
+            cp_set_text="Standard creditworthiness, Good creditworthiness",
+            cp_coverage_correct=95,
+            cp_coverage_incorrect=5,
         )
 
-
-page_sequence = [Instructions]
+page_sequence = [TasksInstructions, AIInstructions]

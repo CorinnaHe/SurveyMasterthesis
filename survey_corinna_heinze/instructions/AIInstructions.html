@@ -1,0 +1,119 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+<!-- ========================= -->
+<!-- Q2_model_explanation -->
+<!-- ========================= -->
+
+<h3>🤖 How the AI system works</h3>
+
+<p>
+The AI system is trained on past credit decisions and looks for patterns in financial information, achieving an overall accuracy of approximately 71% in evaluation.
+</p>
+
+<p>
+For each applicant, it considers the same factors that will be shown to you, such as annual income, outstanding debt, and interest rates.
+</p>
+
+<p>
+The figure below shows which applicant characteristics tend to influence the AI’s predictions most strongly.
+Features at the top of the plot are generally more important for the AI’s decision than those further down.
+</p>
+
+<p>
+Each dot represents an applicant from the data used to analyze the model.
+Dots further to the left or right indicate a stronger influence on the prediction.
+</p>
+
+<p>
+The color of the dots indicates whether the feature value is relatively low or high
+(for example, lower income vs. higher income).
+</p>
+
+
+<p>
+<em>
+    <img src="{{ static 'images/shap_summary.png' }}" alt="SHAP values" style="width:80%">
+</em>
+</p>
+
+<hr>
+
+<!-- ========================= -->
+<!-- Q2_AI_support_explanation -->
+<!-- ========================= -->
+
+<h3>How AI support is given</h3>
+
+{% if condition == "C1" %}
+
+<p>
+The AI provides a single suggested outcome for the applicant.
+Below the suggestion, it shows a frequency-style description (e.g., “82 out of 100 cases”).
+</p>
+
+<p>
+This description indicates how confident the AI is in its prediction.
+It does not guarantee that the suggestion is correct.
+The AI support provides additional information that you may consider when making your final decision.
+</p>
+
+
+<p class="instruction-note">
+    Example of how the AI support is displayed:
+</p>
+
+{% include "trial_framework/AI_support_box.html" %}
+
+{% elif condition == "C2" %}
+
+<p>
+The AI provides a single suggested outcome together with a confidence level
+(low, medium, or high).
+</p>
+
+<p>
+The confidence level summarizes how confident the model is in its prediction.
+It is derived from the predicted probability and grouped into broad categories.
+</p>
+
+<p>
+A higher confidence does not guarantee correctness.
+The AI support provides additional information that you may consider when making your final decision.
+</p>
+
+
+<p class="instruction-note">
+    Example of how the AI support is displayed:
+</p>
+
+{% include "trial_framework/AI_support_box.html" %}
+
+{% elif condition == "C3" %}
+
+<p>
+Instead of a single suggestion, the AI shows a set of outcomes it considers plausible, ordered from the most to the least confident item.
+The set is constructed so that it is likely to include the correct outcome in 95 of 100 cases.
+</p>
+
+<p>
+When the set contains more outcomes, the model is less certain.
+When it contains fewer outcomes, the model is more confident in its prediction.
+The AI support provides additional information that you may consider when making your final decision.
+</p>
+
+<p class="instruction-note">
+    Example of how the AI support is displayed:
+</p>
+
+{% include "trial_framework/AI_support_box.html" %}
+
+{% endif %}
+
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

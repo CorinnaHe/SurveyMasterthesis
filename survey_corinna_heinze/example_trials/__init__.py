@@ -32,6 +32,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     # --- internal / analysis variables ---
+    page_duration_stage1 = models.FloatField()
+    page_duration_stage2 = models.FloatField()
     case_id = models.IntegerField(blank=True)
     y_true = models.StringField(blank=True)
 
@@ -89,7 +91,7 @@ class PracticeIntro(Page):
 
 class Stage1(Page):
     form_model = "player"
-    form_fields = ["initial_decision", "initial_confidence"]
+    form_fields = ["initial_decision", "initial_confidence", "page_duration_stage1"]
     template_name = "trial_framework/Stage1.html"
 
     @staticmethod
@@ -103,7 +105,7 @@ class Stage1(Page):
 
 class Stage2(Page):
     form_model = "player"
-    form_fields = ["final_decision", "final_confidence"]
+    form_fields = ["final_decision", "final_confidence", "page_duration_stage2"]
     template_name = "trial_framework/Stage2.html"
 
 

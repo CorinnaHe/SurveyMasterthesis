@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+<h2>Comprehension Questions</h2>
+
+<!-- ========================= -->
+<!-- Q3_check_decision_authority -->
+<!-- ========================= -->
+
+<div class="question-box">
+    {{ formfield 'check_decision_authority' }}
+</div>
+
+<!-- ========================= -->
+<!-- Q3_check_model_understanding -->
+<!-- ========================= -->
+<div class="question-box">
+    {{ formfield 'check_model_understanding' }}
+</div>
+
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

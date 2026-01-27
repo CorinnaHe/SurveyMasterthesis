@@ -1,0 +1,101 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+<!-- ========================= -->
+<!-- Q2_task_instructions -->
+<!-- ========================= -->
+
+<div class="instruction-box">
+    <h3>📋 Your task</h3>
+    <p>
+        👔 You take the role of a <strong>bank employee</strong> who reviews credit applications.
+    </p>
+
+    <p>
+        For each applicant, you will see information such as income, debt, and employment details.
+        Based on this information, your task is to assess the applicant’s creditworthiness and classify
+        the applicant into one of the following categories:
+    </p>
+
+    <ul>
+        <li>Poor creditworthiness</li>
+        <li>Standard creditworthiness</li>
+        <li>Good creditworthiness</li>
+    </ul>
+
+    <p class="instruction-note">
+        Please take your time and base each decision on the information shown.
+    </p>
+</div>
+
+<div class="instruction-box-light">
+    <p>
+        Each case consists of two steps:
+    </p>
+
+    <p>
+        <strong>Step 1:</strong>
+        You make an initial decision based only on the applicant information.
+    </p>
+
+    <p>
+        <strong>Step 2:</strong>
+        You then see the AI-support and can keep or revise your decision.
+    </p>
+
+    <p class="instruction-note">
+        You always make the final decision. The AI provides support, but it does not decide for you.
+    </p>
+</div>
+
+<!-- ========================= -->
+<!-- Q2_feature_overview -->
+<!-- ========================= -->
+
+<h4>🔍 Applicant Information Overview</h4>
+
+<p>
+In each case, you will be shown information about an applicant.
+Below is an overview of the types of information you will see and what they represent.
+</p>
+
+<table class="feature-overview-vertical">
+    <tr>
+        <td class="feature-name">👤 Age</td>
+        <td>Age of the individual in years</td>
+    </tr>
+    <tr>
+        <td class="feature-name">👤 Occupation</td>
+        <td>Occupational category of the individual</td>
+    </tr>
+    <tr>
+        <td class="feature-name">💰 Annual income</td>
+        <td>Annual gross income of the individual</td>
+    </tr>
+    <tr>
+        <td class="feature-name">💰 Outstanding debt</td>
+        <td>Total amount of outstanding financial liabilities</td>
+    </tr>
+    <tr>
+        <td class="feature-name">💰 Monthly balance</td>
+        <td>Average monthly account balance</td>
+    </tr>
+    <tr>
+        <td class="feature-name">💳 Number of credit cards</td>
+        <td>Number of credit cards currently held</td>
+    </tr>
+    <tr>
+        <td class="feature-name">💳 Interest rate</td>
+        <td>
+            The percentage charged on the applicant’s existing credit, which determines how much extra they have to pay on borrowed money over time.
+            A higher interest rate means borrowing is more expensive for the applicant.
+        </td>
+    </tr>
+</table>
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

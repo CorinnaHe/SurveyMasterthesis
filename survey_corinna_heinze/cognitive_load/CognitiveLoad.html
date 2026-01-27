@@ -2,14 +2,36 @@
 {% load otree %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
 
-<h2>Task Evaluation</h2>
+<h3>Task Evaluation</h3>
 
 <p>
 Please answer the following question about your experience during the task.
 </p>
 
-{{ formfield 'cognitive_load_mental' }}
+<div class="question-box">
+
+    <p>{{form.cognitive_load_mental.label}}</p>
+    <table class="table table-bordered text-center scale-table">
+        <tr>
+            {% for choice in form.cognitive_load_mental %}
+                <th style="width: 8%;">
+                    {{ choice.label }}
+                </th>
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <!-- Radio buttons -->
+            {% for choice in form.cognitive_load_mental %}
+                <td>
+                    {{ choice }}
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
 
 <button class="otree-btn-next">Continue</button>
 
