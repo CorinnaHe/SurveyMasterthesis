@@ -3,8 +3,22 @@ body {
     background-color: red !important;
 }
 
-button {
-    border-radius: 5px;
+.otree-btn-next {
+    display: block;
+    margin-left: auto;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover */
+.otree-btn-next:hover {
+    background-color: #357abd;
 }
 
 .scale-table {
