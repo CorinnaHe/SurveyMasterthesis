@@ -1,8 +1,7 @@
 <style>
-body {
-    background-color: red !important;
-}
+body {}
 
+/* Continue Button */
 .otree-btn-next {
     display: block;
     margin-left: auto;
@@ -16,10 +15,11 @@ body {
     transition: background-color 0.2s ease;
 }
 
-/* Hover */
 .otree-btn-next:hover {
     background-color: #357abd;
 }
+
+/* Likert-Scale Tables */
 
 .scale-table {
     table-layout: fixed;
@@ -32,6 +32,7 @@ body {
     font-size: smaller;
 }
 
+/* Questions */
 
 .question-box {
     background-color: #f5f5f5;
@@ -44,6 +45,8 @@ body {
 .question-box .otree-form-errors {
     margin-top: 10px;
 }
+
+/* AI support */
 
 .ai-support-box {
     background-color: #eef5ff;
@@ -74,6 +77,38 @@ body {
 .ai-prediction {
     font-weight: 600;
     margin: 10px 0;
+}
+
+/* Feature Overview */
+
+.feature-overview-vertical {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+.feature-overview-vertical td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 10px;
+    vertical-align: top;
+}
+
+.feature-overview-vertical .feature-name {
+    font-weight: 600;
+    background-color: #f4f6f8;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .feature-overview-vertical {
+        font-size: 0.9rem;
+    }
+
+    .feature-overview-vertical .feature-name {
+        width: 45%;
+        white-space: normal;
+    }
 }
 
 </style>

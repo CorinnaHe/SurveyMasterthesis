@@ -18,48 +18,36 @@ function getTime(){
 
 </script>
 
-<h2>{{ trial_label }} {{ trial_number }} – Stage 1: Initial Decision</h2>
+<h3 style="margin-bottom: 30px;">{{ trial_label }} {{ trial_number }}/15 – Step 1</h3>
 
 <!-- ========================= -->
-<!-- features -->
+<!-- features (table version) -->
 <!-- ========================= -->
 
-<h3>Applicant {{ trial_number }}</h3>
+<h4>🔍 Applicant {{ trial_number }}</h4>
 
-<p><strong>Sociodemographic information</strong></p>
-<ul>
+<table class="feature-overview-vertical">
     {% for f in features %}
-        {% if f.group == "Demographic information" %}
-            <li>
-                <strong>{{ f.label }}:</strong> {{ f.value }}
-            </li>
-        {% endif %}
+        <tr>
+            <td class="feature-name">
+                {% if f.group == "Demographic information" %}
+                    👤
+                {% elif f.group == "Financial information" %}
+                    💰
+                {% elif f.group == "Credit information" %}
+                    💳
+                {% endif %}
+                {{ f.label }}
+            </td>
+            <td>
+                {{ f.value }}
+            </td>
+        </tr>
     {% endfor %}
-</ul>
-
-<p><strong>Financial situation</strong></p>
-<ul>
-    {% for f in features %}
-        {% if f.group == "Financial information" %}
-            <li>
-                <strong>{{ f.label }}:</strong> {{ f.value }}
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul>
-
-<p><strong>Credit-related information</strong></p>
-<ul>
-    {% for f in features %}
-        {% if f.group == "Credit information" %}
-            <li>
-                <strong>{{ f.label }}:</strong> {{ f.value }}
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul>
+</table>
 
 <hr>
+
 
 <!-- ========================= -->
 <!-- initial_decision -->
@@ -68,8 +56,6 @@ function getTime(){
 <div class="question-box">
     {{ formfield 'initial_decision' }}
 </div>
-
-<hr>
 
 <!-- ========================= -->
 <!-- initial_confidence -->

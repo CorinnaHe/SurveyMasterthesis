@@ -19,68 +19,33 @@ function getTime(){
 
 </script>
 
-<h2>{{ trial_label }} l {{ trial_number }} – Stage 2: Final Decision</h2>
+<h3 style="margin-bottom: 30px;">{{ trial_label }}  {{ trial_number }}/15 – Step 2</h3>
 
 <!-- ========================= -->
-<!-- Task reminder -->
+<!-- features (table version) -->
 <!-- ========================= -->
 
-<p>
-You are assessing a credit application.
-Please review the applicant information below and make your final decision,
-taking into account the AI assessment.
-</p>
+<h5>🔍 Applicant {{ trial_number }}</h5>
 
-<hr>
-
-<!-- ========================= -->
-<!-- Applicant features (same as Stage 1) -->
-<!-- ========================= -->
-
-<h3>Applicant {{ trial_number }}</h3>
-
-<p><strong>Sociodemographic information</strong></p>
-<ul>
+<table class="feature-overview-vertical">
     {% for f in features %}
-        {% if f.group == "Demographic information" %}
-            <li>
-                <strong>{{ f.label }}:</strong> {{ f.value }}
-            </li>
-        {% endif %}
+        <tr>
+            <td class="feature-name">
+                {% if f.group == "Demographic information" %}
+                    👤
+                {% elif f.group == "Financial information" %}
+                    💰
+                {% elif f.group == "Credit information" %}
+                    💳
+                {% endif %}
+                {{ f.label }}
+            </td>
+            <td>
+                {{ f.value }}
+            </td>
+        </tr>
     {% endfor %}
-</ul>
-
-<p><strong>Financial situation</strong></p>
-<ul>
-    {% for f in features %}
-        {% if f.group == "Financial information" %}
-            <li>
-                <strong>{{ f.label }}:</strong> {{ f.value }}
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul>
-
-<p><strong>Credit-related information</strong></p>
-<ul>
-    {% for f in features %}
-        {% if f.group == "Credit information" %}
-            <li>
-                <strong>{{ f.label }}:</strong> {{ f.value }}
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul>
-
-<br>
-
-<p>
-You <strong>initially</strong> classified this applicant as:
-</p>
-
-<p>{{ initial_decision_label }}</p>
-
-<hr>
+</table>
 
 <!-- ========================= -->
 <!-- AI support -->
@@ -100,11 +65,11 @@ You <strong>initially</strong> classified this applicant as:
     </p>
 
     <p class="ai-prediction">
-        → {{ ai_label }}
+        <strong>→ {{ ai_label }}</strong>
     </p>
 
     <p>
-        Out of <strong>100 similar past cases</strong>, predictions like this were
+        Out of 100 similar past cases, predictions like this were
         <strong>correct in about {{ ai_correct_predictions }} cases</strong>
         and
         <strong>incorrect in about {{ ai_incorrect_predictions }} cases</strong>.
@@ -117,7 +82,7 @@ You <strong>initially</strong> classified this applicant as:
     </p>
 
     <p class="ai-prediction">
-        → {{ ai_label }}
+        <strong>→ {{ ai_label }}</strong>
     </p>
 
     <p>
@@ -131,11 +96,11 @@ You <strong>initially</strong> classified this applicant as:
     </p>
 
     <p class="ai-prediction">
-        → {{ cp_set_text }}
+        <strong>→ {{ cp_set_text }}</strong>
     </p>
 
     <p>
-        Out of <strong>100 similar past cases</strong>, the true outcome was
+        Out of 100 similar past cases, the true outcome was
         <strong>included in this set in about {{ cp_coverage_correct }} cases</strong>
         and
         <strong>not included in about {{ cp_coverage_incorrect }} cases</strong>.
@@ -146,6 +111,11 @@ You <strong>initially</strong> classified this applicant as:
 </div>
 
 
+<p>
+You initially classified this applicant as:
+</p>
+
+<p><strong>→ {{ initial_decision_label }}</strong></p>
 
 <hr>
 
@@ -156,8 +126,6 @@ You <strong>initially</strong> classified this applicant as:
 <div class="question-box">
     {{ formfield 'final_decision' }}
 </div>
-
-<hr>
 
 <p>{{form.final_confidence.label}}</p>
 <table class="table table-bordered text-center scale-table">
