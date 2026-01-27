@@ -112,6 +112,15 @@ class Player(BasePlayer):
     )
 
 
+    # -----------------
+    # Comment
+    # -----------------
+    comment = models.LongStringField(
+        label="Optional: If you would like to comment on anything, you can do so here.",
+        blank=True
+    )
+
+
 class ControlMeasures(Page):
     form_model = "player"
     form_fields = [
@@ -124,6 +133,7 @@ class ControlMeasures(Page):
         "ai_literacy4",
         "risk_aversion",
         "domain_experience",
+        "comment",
     ]
 
 

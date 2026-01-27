@@ -2,42 +2,45 @@
 {% load otree %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
 
-<h2>Thank You for Your Participation</h2>
+<h3>Thank You for Your Participation</h3>
 
 <p>
 Thank you for taking part in this study. Your responses have been recorded successfully.
 </p>
 
-<p>
-<strong>Incentive Reminder:</strong><br>
-The <strong>three participants with the highest number of correct final decisions</strong>
-will each receive a <strong>€25 Amazon voucher</strong>.
-</p>
+<div class="instruction-box">
+    <p>
+    <strong>Incentive Reminder:</strong><br>
+    The three participants with the highest number of correct final decisions
+    will each receive a €25 Amazon voucher.
+    </p>
 
-<p>
-Vouchers will be sent <strong>after the study has been fully completed and data collection is closed</strong>.
-They will <strong>not</strong> be sent immediately after participation.
-</p>
+    <p>
+    Vouchers will be sent after the study has been fully completed and data collection is closed.
+    They will not be sent immediately after participation.
+    </p>
+</div>
+
 
 <p>
 If you would like to be contacted in case you are among the winners, you may
-<strong>optionally</strong> provide an email address below.
+optionally provide an email address below.
 </p>
 
 <ul>
-    <li>Providing an email address is <strong>voluntary</strong>.</li>
-    <li>The email address will be used <strong>only</strong> to send the voucher.</li>
-    <li>The email address will <strong>not</strong> be linked to your survey responses.</li>
+    <li>Providing an email address is voluntary.</li>
+    <li>The email address will be used only to send the voucher.</li>
+    <li>The email address will not be linked to your survey responses.</li>
     <li>Email addresses will be deleted after the vouchers have been distributed.</li>
 </ul>
 
 <hr>
 
-<div class="question-box">
-    {{ formfield 'contact_email' }}
-</div>
+{{ formfield 'contact_email' }}
 
-<button class="otree-btn-next">Submit E-Mail</button>
+
+<button class="otree-btn-next" style="margin-left: revert;">Submit E-Mail</button>
 
 {% endblock %}
