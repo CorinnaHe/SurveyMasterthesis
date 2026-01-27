@@ -56,27 +56,27 @@ class Player(BasePlayer):
     # AI literacy (0–10)
     # -----------------
 
-    ai_literacy1 = models.IntegerField(
-        label="I am familiar with AI-based applications that are used in everyday life.",
-        choices=LIKERT_0_10_LITERACY,
+    ai_literacy_sk9 = models.IntegerField(
+        label="I have knowledge of using AI output and interpreting it",
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
-    ai_literacy2 = models.IntegerField(
-        label="I can use AI-based applications to support my decisions in everyday situations.",
-        choices=LIKERT_0_10_LITERACY,
+    ai_literacy_sk10 = models.IntegerField(
+        label="I have knowledge of AI output limitations",
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
-    ai_literacy3 = models.IntegerField(
-        label="I understand that AI systems have both strengths and limitations.",
-        choices=LIKERT_0_10_LITERACY,
+    ai_literacy_ail2 = models.IntegerField(
+        label="I am knowledgeable about the steps involved in AI decision-making",
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
-    ai_literacy4 = models.IntegerField(
-        label="I can usually tell when a system or service is based on artificial intelligence.",
-        choices=LIKERT_0_10_LITERACY,
+    ai_literacy_ue2 = models.IntegerField(
+        label="I have experience in the usage of AI through frequent interactions in my everyday life",
+        choices=[i for i in range(1,8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
@@ -142,10 +142,10 @@ class ControlMeasures(Page):
         "age",
         "gender",
         "education",
-        "ai_literacy1",
-        "ai_literacy2",
-        "ai_literacy3",
-        "ai_literacy4",
+        "ai_literacy_sk9",
+        "ai_literacy_sk10",
+        "ai_literacy_ail2",
+        "ai_literacy_ue2",
         "ai_attitude",
         "ai_trust",
         "risk_aversion",
