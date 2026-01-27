@@ -65,7 +65,6 @@ def stage2_vars(player, trial, trial_label):
         condition=player.participant.vars["condition"],
 
         initial_decision_label=DECISION_LABELS[player.initial_decision],
-        initial_confidence_label=CONFIDENCE_LABELS[player.initial_confidence],
 
         ai_label=player.point_pred_cal,
         ai_correct_predictions=ai_correct,
