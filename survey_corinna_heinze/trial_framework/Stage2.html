@@ -50,66 +50,7 @@ function getTime(){
 <!-- ========================= -->
 <!-- AI support -->
 <!-- ========================= -->
-
-<div class="ai-support-box">
-
-    <div class="ai-support-header">
-        <span class="ai-icon">🤖</span>
-        <span class="ai-title">AI Support</span>
-    </div>
-
-    {% if condition == "C1" %}
-
-    <p>
-        Based on the available information, the AI predicts:
-    </p>
-
-    <p class="ai-prediction">
-        <strong>→ {{ ai_label }}</strong>
-    </p>
-
-    <p>
-        Out of 100 similar past cases, predictions like this were
-        <strong>correct in about {{ ai_correct_predictions }} cases</strong>
-        and
-        <strong>incorrect in about {{ ai_incorrect_predictions }} cases</strong>.
-    </p>
-
-    {% elif condition == "C2" %}
-
-    <p>
-        Based on the available information, the AI predicts:
-    </p>
-
-    <p class="ai-prediction">
-        <strong>→ {{ ai_label }}</strong>
-    </p>
-
-    <p>
-        The AI has <strong>{{ ai_confidence_level }}</strong> confidence in this prediction.
-    </p>
-
-    {% elif condition == "C3" %}
-
-    <p>
-        Based on the available information, the AI identifies the following outcomes as plausible:
-    </p>
-
-    <p class="ai-prediction">
-        <strong>→ {{ cp_set_text }}</strong>
-    </p>
-
-    <p>
-        Out of 100 similar past cases, the true outcome was
-        <strong>included in this set in about {{ cp_coverage_correct }} cases</strong>
-        and
-        <strong>not included in about {{ cp_coverage_incorrect }} cases</strong>.
-    </p>
-
-    {% endif %}
-
-</div>
-
+{% include "trial_framework/AI_support_box.html" %}
 
 <p>
 You initially classified this applicant as:
