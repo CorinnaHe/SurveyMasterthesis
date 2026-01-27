@@ -22,11 +22,22 @@ class Player(BasePlayer):
         blank=True,
         label="Email address (optional, for voucher delivery only)"
     )
+    num_correct_final = models.IntegerField()
 
 
 class Closing(Page):
     form_model = "player"
     form_fields = ["contact_email"]
+
+    @staticmethod
+    def vars_for_template(player):
+        player.num_correct_final = player.participant.vars.get("num_correct_final", 0)
+        num_correct = player.participant.vars.get("num_correct_final", 0)
+
+        return dict(
+            num_correct=num_correct,
+            num_total=15,
+        )
 
     @staticmethod
     def error_message(player, values):

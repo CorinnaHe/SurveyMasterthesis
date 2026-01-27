@@ -9,6 +9,12 @@ from trial_framework import (
     stage2_vars,
 )
 
+DECISION_MAP = {
+    "poor": 1,
+    "standard": 2,
+    "good": 3,
+}
+
 TRIAL_LABEL = "Main Task"
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "data" / "tasks_main_trials.csv"
@@ -34,6 +40,9 @@ def creating_session(session):
             random.shuffle(indices)
             p.participant.vars["trial_order"] = indices[:C.NUM_ROUNDS]
 
+        if "num_correct_final" not in p.participant.vars:
+            p.participant.vars["num_correct_final"] = 0
+
 
 class Group(BaseGroup):
     pass
@@ -45,6 +54,7 @@ class Player(BasePlayer):
     page_duration_stage2 = models.FloatField()
     case_id = models.IntegerField(blank=True)
     y_true = models.StringField(blank=True)
+    final_correct = models.BooleanField()
 
     point_pred_cal = models.StringField(blank=True)
     point_pred_confidence = models.FloatField(blank=True)
@@ -89,8 +99,9 @@ class Player(BasePlayer):
 
 
 def get_trial(player):
-    order = player.participant.vars["trial_order"]
-    return TRIALS[order[player.round_number - 1]]
+    trial = TRIALS[player.participant.vars["trial_order"][player.round_number - 1]]
+    player.y_true = trial["y_true"]
+    return trial
 
 
 class MainTrialsIntro(Page):
@@ -124,6 +135,17 @@ class Stage2(Page):
             player,
             get_trial(player),
             trial_label=TRIAL_LABEL,
+        )
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        correct_decision = DECISION_MAP.get(player.y_true)
+
+        if correct_decision is not None:
+            if player.final_decision == correct_decision:
+                player.participant.vars["num_correct_final"] += 1
+        player.final_correct = (
+                player.final_decision == DECISION_MAP.get(player.y_true)
         )
 
 
