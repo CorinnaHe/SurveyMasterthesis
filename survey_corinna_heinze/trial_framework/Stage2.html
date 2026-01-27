@@ -19,7 +19,7 @@ function getTime(){
 
 </script>
 
-<h3 style="margin-bottom: 30px;">{{ trial_label }}  {{ trial_number }}/15 – Step 2</h3>
+<h3>{{ trial_label }}  {{ trial_number }}/15 – Step 2</h3>
 
 <!-- ========================= -->
 <!-- features (table version) -->
@@ -125,27 +125,27 @@ You initially classified this applicant as:
 
 <div class="question-box">
     {{ formfield 'final_decision' }}
+
+    <p style="margin-top: 30px;">{{form.final_confidence.label}}</p>
+    <table class="table table-bordered text-center scale-table">
+        <tr>
+            {% for choice in form.final_confidence %}
+                <th style="width: 8%;">
+                    {{ choice.label }}
+                </th>
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <!-- Radio buttons -->
+            {% for choice in form.final_confidence %}
+                <td>
+                    {{ choice }}
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
 </div>
-
-<p>{{form.final_confidence.label}}</p>
-<table class="table table-bordered text-center scale-table">
-    <tr>
-        {% for choice in form.final_confidence %}
-            <th style="width: 8%;">
-                {{ choice.label }}
-            </th>
-        {% endfor %}
-    </tr>
-
-    <tr>
-        <!-- Radio buttons -->
-        {% for choice in form.final_confidence %}
-            <td>
-                {{ choice }}
-            </td>
-        {% endfor %}
-    </tr>
-</table>
 
 <button class="otree-btn-next" onclick="getTime()">Continue</button>
 

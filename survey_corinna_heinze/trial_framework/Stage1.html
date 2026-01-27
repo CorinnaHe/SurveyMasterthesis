@@ -18,7 +18,7 @@ function getTime(){
 
 </script>
 
-<h3 style="margin-bottom: 30px;">{{ trial_label }} {{ trial_number }}/15 – Step 1</h3>
+<h3>{{ trial_label }} {{ trial_number }}/15 – Step 1</h3>
 
 <!-- ========================= -->
 <!-- features (table version) -->
@@ -55,31 +55,33 @@ function getTime(){
 
 <div class="question-box">
     {{ formfield 'initial_decision' }}
-</div>
+
 
 <!-- ========================= -->
 <!-- initial_confidence -->
 <!-- ========================= -->
 
-<p>{{form.initial_confidence.label}}</p>
-<table class="table table-bordered text-center scale-table">
-    <tr>
-        {% for choice in form.initial_confidence %}
-            <th style="width: 8%;">
-                {{ choice.label }}
-            </th>
-        {% endfor %}
-    </tr>
+    <p style="margin-top: 30px;">{{form.initial_confidence.label}}</p>
+    <table class="table table-bordered text-center scale-table">
+        <tr>
+            {% for choice in form.initial_confidence %}
+                <th style="width: 8%;">
+                    {{ choice.label }}
+                </th>
+            {% endfor %}
+        </tr>
 
-    <tr>
-        <!-- Radio buttons -->
-        {% for choice in form.initial_confidence %}
-            <td>
-                {{ choice }}
-            </td>
-        {% endfor %}
-    </tr>
-</table>
+        <tr>
+            <!-- Radio buttons -->
+            {% for choice in form.initial_confidence %}
+                <td>
+                    {{ choice }}
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
+
+</div>
 
 <button class="otree-btn-next" onclick="getTime()">Continue</button>
 

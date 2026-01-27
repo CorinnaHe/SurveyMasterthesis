@@ -20,14 +20,24 @@ class Player(BasePlayer):
 
 
 # PAGES
-class Instructions(Page):
+class TasksInstructions(Page):
+    form_model = "player"
+
+
+class AIInstructions(Page):
     form_model = "player"
 
     @staticmethod
     def vars_for_template(player):
         return dict(
-            condition=player.participant.vars["condition"]
+            condition=player.participant.vars["condition"],
+            ai_label="Standard creditworthiness",
+            ai_correct_predictions=82,
+            ai_incorrect_predictions=18,
+            ai_confidence_level="high",
+            cp_set_text="Standard creditworthiness, Good creditworthiness",
+            cp_coverage_correct=95,
+            cp_coverage_incorrect=5,
         )
 
-
-page_sequence = [Instructions]
+page_sequence = [TasksInstructions, AIInstructions]
