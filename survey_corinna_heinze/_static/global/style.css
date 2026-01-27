@@ -30,4 +30,36 @@ button {
 .question-box .otree-form-errors {
     margin-top: 10px;
 }
+
+.ai-support-box {
+    background-color: #eef5ff;
+    border: 1px solid #c9dbf2;
+    border-left: 5px solid #4a90e2;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+.ai-support-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ai-icon {
+    font-size: 1.4rem;
+    margin-right: 8px;
+}
+
+.ai-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.ai-prediction {
+    font-weight: 600;
+    margin: 10px 0;
+}
+
 </style>

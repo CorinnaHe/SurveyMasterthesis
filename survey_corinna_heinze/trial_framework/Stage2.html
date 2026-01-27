@@ -86,51 +86,65 @@ You <strong>initially</strong> classified this applicant as:
 <!-- AI support -->
 <!-- ========================= -->
 
-<h3>AI-Support</h3>
+<div class="ai-support-box">
 
-{% if condition == "C1" %}
+    <div class="ai-support-header">
+        <span class="ai-icon">🤖</span>
+        <span class="ai-title">AI Support</span>
+    </div>
 
-<p>
-Based on the available information, the AI predicts:
-</p>
+    {% if condition == "C1" %}
 
-<p><strong>→ {{ ai_label }}</strong></p>
+    <p>
+        Based on the available information, the AI predicts:
+    </p>
 
-<p>
-Out of <strong>100 similar past cases</strong>, predictions like this were
-<strong>correct in about {{ ai_correct_predictions }} cases</strong>
-and
-<strong>incorrect in about {{ ai_incorrect_predictions }} cases</strong>.
-</p>
+    <p class="ai-prediction">
+        → {{ ai_label }}
+    </p>
 
-{% elif condition == "C2" %}
+    <p>
+        Out of <strong>100 similar past cases</strong>, predictions like this were
+        <strong>correct in about {{ ai_correct_predictions }} cases</strong>
+        and
+        <strong>incorrect in about {{ ai_incorrect_predictions }} cases</strong>.
+    </p>
 
-<p>
-Based on the available information, the AI predicts:
-</p>
+    {% elif condition == "C2" %}
 
-<p><strong>→ {{ ai_label }}</strong></p>
+    <p>
+        Based on the available information, the AI predicts:
+    </p>
 
-<p>
-The AI has <strong>{{ ai_confidence_level }}</strong> confidence in this prediction.
-</p>
+    <p class="ai-prediction">
+        → {{ ai_label }}
+    </p>
 
-{% elif condition == "C3" %}
+    <p>
+        The AI has <strong>{{ ai_confidence_level }}</strong> confidence in this prediction.
+    </p>
 
-<p>
-Based on the available information, the AI identifies the following outcomes as plausible:
-</p>
+    {% elif condition == "C3" %}
 
-<p><strong>→ {{ cp_set_text }}</strong></p>
+    <p>
+        Based on the available information, the AI identifies the following outcomes as plausible:
+    </p>
 
-<p>
-Out of <strong>100 similar past cases</strong>, the true outcome was
-<strong>included in this set in about {{ cp_coverage_correct }} cases</strong>
-and
-<strong>not included in about {{ cp_coverage_incorrect }} cases</strong>.
-</p>
+    <p class="ai-prediction">
+        → {{ cp_set_text }}
+    </p>
 
-{% endif %}
+    <p>
+        Out of <strong>100 similar past cases</strong>, the true outcome was
+        <strong>included in this set in about {{ cp_coverage_correct }} cases</strong>
+        and
+        <strong>not included in about {{ cp_coverage_incorrect }} cases</strong>.
+    </p>
+
+    {% endif %}
+
+</div>
+
 
 
 <hr>
