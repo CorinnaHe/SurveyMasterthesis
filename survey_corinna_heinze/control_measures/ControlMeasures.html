@@ -9,9 +9,68 @@ Finally, we would like to ask you a few questions about your background and expe
 </p>
 
 <h5>Experience with AI</h5>
+<p>{{form.ai_attitude.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.ai_attitude %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Strongly disagree</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.ai_attitude %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Strongly agree</td>
+    </tr>
+</table>
+
+<p>{{form.ai_trust.label}}</p>
+<table class="table table-bordered text-center scale-table margin-bottom">
+    <tr>
+        <th style="width: 20%;"></th>
+
+        {% for choice in form.ai_trust %}
+            <th style="width: 8%;">
+                {{ choice.label }}
+            </th>
+        {% endfor %}
+
+        <th style="width: 20%;"></th>
+    </tr>
+
+    <tr>
+        <!--left anchor -->
+        <td>Strongly disagree</td>
+
+        <!-- Radio buttons -->
+        {% for choice in form.ai_trust %}
+            <td>
+                {{ choice }}
+            </td>
+        {% endfor %}
+
+        <!--right anchor -->
+        <td>Strongly agree</td>
+    </tr>
+</table>
 
 <p>{{form.ai_literacy1.label}}</p>
-<table class="table table-bordered text-center scale-table">
+<table class="table table-bordered text-center scale-table margin-bottom">
     <tr>
         <th style="width: 20%;"></th>
 
@@ -41,7 +100,7 @@ Finally, we would like to ask you a few questions about your background and expe
 </table>
 
 <p>{{form.ai_literacy2.label}}</p>
-<table class="table table-bordered text-center scale-table">
+<table class="table table-bordered text-center scale-table margin-bottom">
     <tr>
         <th style="width: 20%;"></th>
 
@@ -71,7 +130,7 @@ Finally, we would like to ask you a few questions about your background and expe
 </table>
 
 <p>{{form.ai_literacy3.label}}</p>
-<table class="table table-bordered text-center scale-table">
+<table class="table table-bordered text-center scale-table margin-bottom">
     <tr>
         <th style="width: 20%;"></th>
 
@@ -101,7 +160,7 @@ Finally, we would like to ask you a few questions about your background and expe
 </table>
 
 <p>{{form.ai_literacy4.label}}</p>
-<table class="table table-bordered text-center scale-table">
+<table class="table table-bordered text-center scale-table margin-bottom">
     <tr>
         <th style="width: 20%;"></th>
 
@@ -133,7 +192,7 @@ Finally, we would like to ask you a few questions about your background and expe
 <hr>
 <h5>Risk Aversion</h5>
 <p>{{form.risk_aversion.label}}</p>
-<table class="table table-bordered text-center scale-table">
+<table class="table table-bordered text-center scale-table margin-bottom">
     <tr>
         <th style="width: 20%;"></th>
 

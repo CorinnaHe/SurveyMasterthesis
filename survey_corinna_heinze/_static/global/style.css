@@ -62,6 +62,10 @@ h3 {
     background-color: #f5f5f5;
 }
 
+.margin-bottom {
+    margin-bottom: 40px;
+}
+
 /* Questions */
 
 .question-box {

@@ -81,6 +81,21 @@ class Player(BasePlayer):
     )
 
     # -----------------
+    # AI Trust & Attitude
+    # -----------------
+    ai_attitude = models.IntegerField(
+        label="The AI support was helpful for making my decisions.",
+        choices=[i for i in range(1,8)],
+        widget=widgets.RadioSelectHorizontal,
+    )
+
+    ai_trust = models.IntegerField(
+        label="I trust the AI system to provide reliable support for evaluating applicants’ creditworthiness.",
+        choices=[i for i in range(1,8)],
+        widget=widgets.RadioSelectHorizontal,
+    )
+
+    # -----------------
     # Risk aversion (SOEP)
     # -----------------
 
@@ -131,6 +146,8 @@ class ControlMeasures(Page):
         "ai_literacy2",
         "ai_literacy3",
         "ai_literacy4",
+        "ai_attitude",
+        "ai_trust",
         "risk_aversion",
         "domain_experience",
         "comment",
