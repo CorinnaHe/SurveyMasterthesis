@@ -13,22 +13,32 @@ Please answer the following question about your experience during the task.
 <div class="question-box">
 
     <p>{{form.cognitive_load_mental.label}}</p>
-    <table class="table table-bordered text-center scale-table">
+    <table class="table table-bordered text-center scale-table margin-bottom">
         <tr>
+            <th style="width: 20%;"></th>
+
             {% for choice in form.cognitive_load_mental %}
                 <th style="width: 8%;">
                     {{ choice.label }}
                 </th>
             {% endfor %}
+
+            <th style="width: 20%;"></th>
         </tr>
 
         <tr>
+            <!--left anchor -->
+            <td>Very low mental effort</td>
+
             <!-- Radio buttons -->
             {% for choice in form.cognitive_load_mental %}
                 <td>
                     {{ choice }}
                 </td>
             {% endfor %}
+
+            <!--right anchor -->
+            <td>Very high mental effort</td>
         </tr>
     </table>
 </div>

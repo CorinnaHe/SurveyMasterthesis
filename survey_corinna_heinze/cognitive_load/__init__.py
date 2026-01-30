@@ -19,15 +19,7 @@ class Player(BasePlayer):
 
     cognitive_load_mental = models.IntegerField(
         label="How much mental effort did you invest in this task?",
-        choices=[
-            [1, "1 - Very low mental effort"],
-            [2, "2 - Low mental effort"],
-            [3, "3 - Rather low mental effort"],
-            [4, "4 - Neither low nor high mental effort"],
-            [5, "5 - Rather high mental effort"],
-            [6, "6 - High mental effort"],
-            [7, "7 - Very high mental effort"],
-        ],
+        choices=[i for i in range(1, 8)],
         widget=widgets.RadioSelectHorizontal,
     )
 
