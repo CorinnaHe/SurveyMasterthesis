@@ -7,14 +7,6 @@ DECISION_LABELS = {
     3: "Good creditworthiness",
 }
 
-CONFIDENCE_LABELS = {
-    1: "1 - Not confident at all",
-    2: "2 - Slightly confident",
-    3: "3 - Moderately confident",
-    4: "4 - Very confident",
-    5: "5 - Completely confident",
-}
-
 
 def initialize_player_from_trial(player, trial):
     """

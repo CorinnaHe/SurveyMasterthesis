@@ -4,7 +4,6 @@ import random
 from pathlib import Path
 
 from trial_framework import (
-    CONFIDENCE_LABELS,
     stage1_vars,
     stage2_vars,
 )
@@ -76,7 +75,7 @@ class Player(BasePlayer):
 
     initial_confidence = models.IntegerField(
         label="How confident are you in your decision?",
-        choices=list(CONFIDENCE_LABELS.items()),
+        choices=[i for i in range(1,6)],
         widget=widgets.RadioSelectHorizontal,
     )
 
@@ -93,7 +92,7 @@ class Player(BasePlayer):
 
     final_confidence = models.IntegerField(
         label="How confident are you in your final decision?",
-        choices=list(CONFIDENCE_LABELS.items()),
+        choices=[i for i in range(1,6)],
         widget=widgets.RadioSelectHorizontal,
     )
 

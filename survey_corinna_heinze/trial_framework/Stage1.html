@@ -66,25 +66,34 @@ function getTime(){
 <!-- ========================= -->
 
     <p style="margin-top: 30px;">{{form.initial_confidence.label}}</p>
-    <table class="table table-bordered text-center scale-table">
+    <table class="table table-bordered text-center scale-table margin-bottom">
         <tr>
+            <th style="width: 20%;"></th>
+
             {% for choice in form.initial_confidence %}
                 <th style="width: 8%;">
                     {{ choice.label }}
                 </th>
             {% endfor %}
+
+            <th style="width: 20%;"></th>
         </tr>
 
         <tr>
+            <!--left anchor -->
+            <td>Not confident at all</td>
+
             <!-- Radio buttons -->
             {% for choice in form.initial_confidence %}
                 <td>
                     {{ choice }}
                 </td>
             {% endfor %}
+
+            <!--right anchor -->
+            <td>Completely confident</td>
         </tr>
     </table>
-
 </div>
 
 <button class="otree-btn-next" onclick="getTime()">Continue</button>

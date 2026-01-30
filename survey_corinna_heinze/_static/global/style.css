@@ -54,10 +54,10 @@ h3 {
     table-layout: fixed;
     width: 100%;
     margin-bottom: 10px;
+    font-size: smaller;
 }
 
 .scale-table th {
-    font-size: smaller;
     font-weight: normal;
     background-color: #f5f5f5;
 }
