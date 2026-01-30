@@ -18,7 +18,11 @@ function getTime(){
 
 </script>
 
-<h3>{{ trial_label }} {{ trial_number }}/15 – Step 1</h3>
+<h3>
+    {{ trial_label }}
+    {{ trial_number }}/{% if trial_label == 'Main Trial' %}15 {% else %}3 {% endif %}
+    – Step 1
+</h3>
 
 <!-- ========================= -->
 <!-- features (table version) -->
