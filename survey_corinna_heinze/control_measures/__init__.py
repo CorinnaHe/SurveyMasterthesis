@@ -47,6 +47,7 @@ class Player(BasePlayer):
             "Bachelor’s degree",
             "Master’s degree",
             "Doctorate",
+            "Vocational training"
             "Other",
         ],
         widget=widgets.RadioSelect,
