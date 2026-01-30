@@ -62,4 +62,8 @@ class Closing(Page):
             )
 
 
-page_sequence = [Closing]
+class Closing2(Page):
+    pass
+
+
+page_sequence = [Closing, Closing2]
