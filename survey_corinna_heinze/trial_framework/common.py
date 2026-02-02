@@ -2,9 +2,15 @@
 from utils import build_display_features
 
 DECISION_LABELS = {
-    1: "Poor creditworthiness",
-    2: "Standard creditworthiness",
-    3: "Good creditworthiness",
+    1: "❌ Poor creditworthiness",
+    2: "➖ Standard creditworthiness",
+    3: "✅ Good creditworthiness",
+}
+
+AI_LABEL_MAP = {
+    "poor": "❌ Poor creditworthiness",
+    "standard": "➖ Standard creditworthiness",
+    "good": "✅ Good creditworthiness",
 }
 
 
@@ -41,11 +47,11 @@ def stage1_vars(player, trial, trial_label):
 def stage2_vars(player, trial, trial_label):
     cp_labels = []
     if player.cp_contains_good:
-        cp_labels.append("Good creditworthiness")
+        cp_labels.append("✅ Good creditworthiness")
     if player.cp_contains_standard:
-        cp_labels.append("Standard creditworthiness")
+        cp_labels.append("➖ Standard creditworthiness")
     if player.cp_contains_poor:
-        cp_labels.append("Poor creditworthiness")
+        cp_labels.append("❌ Poor creditworthiness")
 
     ai_correct = int(round(player.point_pred_confidence * 100))
 
@@ -58,7 +64,7 @@ def stage2_vars(player, trial, trial_label):
 
         initial_decision_label=DECISION_LABELS[player.initial_decision],
 
-        ai_label=player.point_pred_cal,
+        ai_label = AI_LABEL_MAP.get(player.point_pred_cal, player.point_pred_cal),
         ai_correct_predictions=ai_correct,
         ai_incorrect_predictions=100 - ai_correct,
         ai_confidence_level=trial["confidence_bin_point_pred"].split("_", 1)[0],

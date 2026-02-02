@@ -47,9 +47,9 @@ class Player(BasePlayer):
     initial_decision = models.IntegerField(
         label="How would you classify this applicant’s creditworthiness?",
         choices=[
-            [1, "Poor creditworthiness"],
-            [2, "Standard creditworthiness"],
-            [3, "Good creditworthiness"],
+            [1, "❌ Poor creditworthiness"],
+            [2, "➖ Standard creditworthiness"],
+            [3, "✅ Good creditworthiness"],
         ],
         widget=widgets.RadioSelect,
     )
@@ -64,9 +64,9 @@ class Player(BasePlayer):
     final_decision = models.IntegerField(
         label="Please make your final decision, taking into account the applicant information and the AI assessment.",
         choices=[
-            [1, "Poor creditworthiness"],
-            [2, "Standard creditworthiness"],
-            [3, "Good creditworthiness"],
+            [1, "❌ Poor creditworthiness"],
+            [2, "➖ Standard creditworthiness"],
+            [3, "✅ Good creditworthiness"],
         ],
         widget=widgets.RadioSelect,
     )
