@@ -5,7 +5,15 @@ from pathlib import Path
 from trial_framework import (
     stage1_vars,
     stage2_vars,
+    DECISION_LABELS,
 )
+
+
+TRUE_LABELS = {
+    "poor": 1,
+    "standard": 2,
+    "good": 3,
+}
 
 TRIAL_LABEL = "Practice Task"
 BASE_DIR = Path(__file__).parent
@@ -79,7 +87,9 @@ class Player(BasePlayer):
 
 
 def get_trial(player):
-    return TRIALS[player.round_number - 1]
+    trial = TRIALS[player.round_number - 1]
+    player.y_true = trial["y_true"]
+    return trial
 
 
 class PracticeIntro(Page):
@@ -107,7 +117,6 @@ class Stage2(Page):
     form_fields = ["final_decision", "final_confidence", "page_duration_stage2"]
     template_name = "trial_framework/Stage2.html"
 
-
     @staticmethod
     def vars_for_template(player):
        return stage2_vars(
@@ -117,4 +126,20 @@ class Stage2(Page):
        )
 
 
-page_sequence = [PracticeIntro, Stage1, Stage2]
+class PracticeFeedback(Page):
+    form_model = "player"
+
+    @staticmethod
+    def vars_for_template(player):
+        true_label = TRUE_LABELS[player.y_true]
+        correct = player.final_decision == true_label
+        return dict(
+            correct=correct,
+            correct_decision_label=DECISION_LABELS[true_label],
+            final_decision=DECISION_LABELS[player.final_decision],
+            trial_label=TRIAL_LABEL,
+            trial_number=player.round_number,
+        )
+
+
+page_sequence = [PracticeIntro, Stage1, Stage2, PracticeFeedback]

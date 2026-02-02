@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+<h3>{{ trial_label }}
+    {{ trial_number }}/{% if trial_label == 'Main Trial' %}15 {% else %}3 {% endif %}
+– Feedback</h3>
+
+{% if correct %}
+    <div class="feedback-box feedback-correct">
+        <strong>Your decision was correct.</strong>
+    </div>
+{% else %}
+    <div class="feedback-box feedback-incorrect">
+        <strong>Your decision was incorrect.</strong>
+        <p style="margin-top: 10px;">
+            The correct classification was:
+        </p>
+        <p>→ {{ correct_decision_label }}</p>
+    </div>
+{% endif %}
+
+<button class="otree-btn-next">Continue</button>
+
+{% endblock %}

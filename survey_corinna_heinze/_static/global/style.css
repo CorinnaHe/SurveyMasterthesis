@@ -147,4 +147,25 @@ h3 {
     }
 }
 
+/* Feedback */
+.feedback-box {
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.feedback-correct {
+    background-color: #e6f4ea;
+    border: 1px solid #2e7d32;
+    color: #1b5e20;
+}
+
+.feedback-incorrect {
+    background-color: #fdecea;
+    border: 1px solid #c62828;
+    color: #8e0000;
+}
+
+
 </style>
