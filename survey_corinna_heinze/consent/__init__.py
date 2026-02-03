@@ -30,6 +30,7 @@ class Player(BasePlayer):
             [False, "No, I do not agree"],
         ],
     )
+    condition = models.StringField()
 
 
 # PAGES
@@ -50,6 +51,7 @@ class Consent(Page):
             conditions = ["C1", "C2", "C3"]
             assigned_condition = conditions[counter % len(conditions)]
 
+            player.condition = assigned_condition
             player.participant.vars["condition"] = assigned_condition
             player.session.vars['condition_counter'] += 1
 
