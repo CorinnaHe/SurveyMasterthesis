@@ -19,7 +19,7 @@ For each applicant, it considers the same factors that will be shown to you, suc
 </p>
 
 <p>
-The figure below shows which applicant characteristics tend to influence the AI’s predictions most strongly.
+The figures below show which applicant characteristics tend to influence the AI’s predictions most strongly.
 Features at the top of the plot are generally more important for the AI’s decision than those further down.
 </p>
 
@@ -29,16 +29,24 @@ Dots further to the left or right indicate a stronger influence on the predictio
 </p>
 
 <p>
-The color of the dots indicates whether the feature value is relatively low or high
-(for example, lower income vs. higher income).
+Dots on the right side indicate that the feature increased the model’s confidence in the respective class,
+while dots on the left side indicate that the feature decreased the confidence in that class.
+For example, in the plot for the poor class, points on the right support a prediction of poor creditworthiness,
+whereas points on the left speak against it.
 </p>
-
 
 <p>
-<em>
-    <img src="{{ static 'images/shap_summary.png' }}" alt="SHAP values" style="width:80%">
-</em>
+The color of the dots indicates whether the feature value is relatively low or high
+(for example, lower vs. higher annual income).
 </p>
+
+<p class="image-wrapper">
+    <em>
+        <img src="{{ static 'images/shap_summary_class_Poor.png' }}" alt="SHAP values poor">
+        <img src="{{ static 'images/shap_summary_class_Good.png' }}" alt="SHAP values good">
+    </em>
+</p>
+
 
 <hr>
 
