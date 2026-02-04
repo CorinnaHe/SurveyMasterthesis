@@ -41,7 +41,13 @@ function getTime(){
                 {% elif f.group == "Credit information" %}
                     💳
                 {% endif %}
-                {{ f.label }}
+                {% if f.explanation %}
+                    <span class="feature-tooltip" data-tooltip="{{ f.explanation }}">
+                        {{ f.label }}
+                    </span>
+                {% else %}
+                    {{ f.label }}
+                {% endif %}
             </td>
             <td>
                 {{ f.value }}

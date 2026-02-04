@@ -26,6 +26,7 @@ def build_display_features(trial):
             "label": cfg["label"],
             "value": value,
             "group": cfg["group"],
+            "explanation": cfg.get("explanation", ""),
         })
 
     return features
