@@ -21,7 +21,7 @@ class Player(BasePlayer):
         choices=[
             [1, "The AI system"],
             [2, "You, based only on your own judgment"],
-            [3, "You, with the AI providing a recommendation"],
+            [3, "You, after the AI providing a recommendation"],
             [4, "The system automatically combines your answer with the AI"],
         ],
         widget=widgets.RadioSelect,
