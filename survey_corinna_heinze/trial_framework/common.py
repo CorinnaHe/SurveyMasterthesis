@@ -13,6 +13,13 @@ AI_LABEL_MAP = {
     "good": "✅ Good creditworthiness",
 }
 
+CREDIT_EMOJI = {
+    "'poor'": "❌ Poor creditworthiness",
+    "'standard'": "➖ Standard creditworthiness",
+    "'good'": "✅ Good creditworthiness",
+}
+
+
 
 def initialize_player_from_trial(player, trial):
     """
@@ -44,15 +51,14 @@ def stage1_vars(player, trial, trial_label):
     )
 
 
-def stage2_vars(player, trial, trial_label):
-    cp_labels = []
-    if player.cp_contains_good:
-        cp_labels.append("✅ Good creditworthiness")
-    if player.cp_contains_standard:
-        cp_labels.append("➖ Standard creditworthiness")
-    if player.cp_contains_poor:
-        cp_labels.append("❌ Poor creditworthiness")
+def _add_credit_emojis(text: str) -> str:
+    for label, emoji in CREDIT_EMOJI.items():
+        text = text.replace(label, f"{emoji}")
+    return text
 
+
+
+def stage2_vars(player, trial, trial_label):
     ai_correct = int(round(player.point_pred_confidence * 100))
 
     return dict(
@@ -69,7 +75,7 @@ def stage2_vars(player, trial, trial_label):
         ai_incorrect_predictions=100 - ai_correct,
         ai_confidence_level=trial["confidence_bin_point_pred"].split("_", 1)[0],
 
-        cp_set_text=trial["cp_standard_sorted_set"],
+        cp_set_text=_add_credit_emojis(trial["cp_standard_sorted_set"]),
         cp_coverage_correct=95,
         cp_coverage_incorrect=5,
     )
