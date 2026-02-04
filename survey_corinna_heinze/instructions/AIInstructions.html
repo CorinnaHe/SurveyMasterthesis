@@ -59,7 +59,7 @@ The color of the dots indicates whether the feature value is relatively low or h
 {% if condition == "C1" %}
 
 <p>
-The AI provides a single suggested outcome for the applicant.
+The AI provides a single suggested class (poor, good or standard) for the applicant.
 Below the suggestion, it shows a frequency-style description (e.g., “82 out of 100 cases”).
 </p>
 
@@ -79,7 +79,7 @@ The AI support provides additional information that you may consider when making
 {% elif condition == "C2" %}
 
 <p>
-The AI provides a single suggested outcome together with a confidence level
+The AI provides a single suggested class (poor, good or standard) together with a confidence level
 (low, medium, or high).
 </p>
 
@@ -103,13 +103,13 @@ The AI support provides additional information that you may consider when making
 {% elif condition == "C3" %}
 
 <p>
-Instead of a single suggestion, the AI shows a set of outcomes it considers plausible, ordered from the most to the least confident item.
+Instead of a single suggestion, the AI shows a set of classes it considers plausible, ordered from the most to the least confident item.
 The set is constructed so that it is likely to include the correct outcome in 95 of 100 cases.
 </p>
 
 <p>
-When the set contains more outcomes, the model is less certain.
-When it contains fewer outcomes, the model is more confident in its prediction.
+When the set contains more classes, the model is less certain.
+When it contains fewer classes, the model is more confident in its prediction.
 The AI support provides additional information that you may consider when making your final decision.
 </p>
 

@@ -20,10 +20,8 @@
         </p>
 
         <p>
-            Out of 100 similar cases, predictions like this were
-            <strong>correct in about {{ ai_correct_predictions }} cases</strong>
-            and
-            <strong>incorrect in about {{ ai_incorrect_predictions }} cases</strong>.
+            In <strong>{{ ai_correct_predictions }} cases</strong> the AI model predicts this class. In {{ ai_incorrect_predictions }}
+            cases the AI model predicts a different class.
         </p>
 
     {% elif condition == "C2" %}
