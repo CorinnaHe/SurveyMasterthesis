@@ -16,6 +16,7 @@ FEATURE_CONFIG = {
         "label": "Occupation",
         "formatter": format_string,
         "group": "Demographic information",
+        "explanation": "General work field",
         "order": 2,
     },
     "feat_Annual_Income": {
@@ -28,15 +29,14 @@ FEATURE_CONFIG = {
         "label": "Outstanding debt",
         "formatter": format_currency,
         "group": "Financial information",
-        "explanation": "Total amount of outstanding financial liabilities.",
+        "explanation": "Total unpaid dept",
         "order": 4,
     },
     "feat_Monthly_Balance": {
         "label": "Monthly balance",
         "formatter": format_currency,
         "group": "Financial information",
-        "explanation": "Average outstanding amount the applicant carries on a revolving credit account each month. "
-                       "Higher values indicate heavier credit usage.",
+        "explanation": "Average unpaid credit card amount per month.",
         "order": 5,
     },
     "feat_Num_Credit_Card": {
@@ -49,8 +49,7 @@ FEATURE_CONFIG = {
         "label": "Interest rate",
         "formatter": format_percentage,
         "group": "Credit information",
-        "explanation": "The percentage charged on the applicant’s existing credit, "
-                       "which determines how much extra they have to pay on borrowed money over time. "
+        "explanation": "The percentage charged on the applicant’s existing credit."
                        "A higher interest rate means borrowing is more expensive for the applicant.",
         "order": 7,
     },

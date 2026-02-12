@@ -29,6 +29,14 @@ function getTime(){
 <!-- ========================= -->
 
 <h4>🔍 Applicant {{ trial_number }}</h4>
+{% if trial_label == 'Practice Task' %}
+<div class="instruction-box">
+    <p>
+     🗽 <strong>Please note: </strong>You are reviewing loan applications from applicants in the United States.
+        The financial profiles therefore follow typical U.S. consumer finance patterns, which may differ from German standards.
+    </p>
+</div>
+{% endif %}
 
 <table class="feature-overview-vertical">
     {% for f in features %}
