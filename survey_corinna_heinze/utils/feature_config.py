@@ -49,8 +49,8 @@ FEATURE_CONFIG = {
         "label": "Interest rate",
         "formatter": format_percentage,
         "group": "Credit information",
-        "explanation": "The percentage charged on the applicant’s existing credit."
-                       "A higher interest rate means borrowing is more expensive for the applicant.",
+        "explanation": "The percentage charged on the applicant’s existing credit. "
+                       "A higher interest rate means borrowing is more expensive for the applicant",
         "order": 7,
     },
 }
