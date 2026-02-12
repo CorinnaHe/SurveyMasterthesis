@@ -8,45 +8,18 @@
 <!-- Q2_model_explanation -->
 <!-- ========================= -->
 
-<h3>🤖 How the AI system works</h3>
+<h3>How the AI system works</h3>
 
 <p>
-The AI system is trained on past credit decisions and looks for patterns in financial information, achieving an overall accuracy of approximately 71% in evaluation.
-</p>
-
-<p>
-For each applicant, it considers the same factors that will be shown to you, such as annual income, outstanding debt, and interest rates.
+    The AI system was trained using past credit decisions. It looks at patterns in financial information
+    to make its predictions. In past cases, it made the <strong>correct decision for about 71% of applicants </strong>
+    and <strong>incorrect decision for about 29%</strong>.
 </p>
 
 <p>
-The figures below show which applicant characteristics tend to influence the AI’s predictions most strongly.
-Features at the top of the plot are generally more important for the AI’s decision than those further down.
+    For each applicant the AI looks at the same characteristics that you will see,
+    such as annual income, existing debt, and interest rates.
 </p>
-
-<p>
-Each dot represents an applicant from the data used to analyze the model.
-Dots further to the left or right indicate a stronger influence on the prediction.
-</p>
-
-<p>
-Dots on the right side indicate that the feature increased the model’s confidence in the respective class,
-while dots on the left side indicate that the feature decreased the confidence in that class.
-For example, in the plot for the poor class, points on the right support a prediction of poor creditworthiness,
-whereas points on the left speak against it.
-</p>
-
-<p>
-The color of the dots indicates whether the feature value is relatively low or high
-(for example, lower vs. higher annual income).
-</p>
-
-<p class="image-wrapper">
-    <em>
-        <img src="{{ static 'images/shap_summary_class_Poor.png' }}" alt="SHAP values poor">
-        <img src="{{ static 'images/shap_summary_class_Good.png' }}" alt="SHAP values good">
-    </em>
-</p>
-
 
 <hr>
 
@@ -59,14 +32,14 @@ The color of the dots indicates whether the feature value is relatively low or h
 {% if condition == "C1" %}
 
 <p>
-The AI provides a single suggested class (poor, good or standard) for the applicant.
-Below the suggestion, it shows a frequency-style description (e.g., “82 out of 100 cases”).
+    The AI provides a single suggested creditworthiness (poor, good or standard creditworthiness) for the applicant.
+    Below the suggestion, it shows a frequency-style description (e.g., “82 of 100 similar cases”).
 </p>
 
 <p>
-This description indicates how confident the AI is in its prediction.
-It does not guarantee that the suggestion is correct.
-The AI support provides additional information that you may consider when making your final decision.
+    This description reflects how confident the AI is in its prediction.
+    However, this does not guarantee that the prediction is correct in this specific case.
+    The AI support provides additional information that you may consider when making your final decision.
 </p>
 
 
@@ -79,8 +52,8 @@ The AI support provides additional information that you may consider when making
 {% elif condition == "C2" %}
 
 <p>
-The AI provides a single suggested class (poor, good or standard) together with a confidence level
-(low, medium, or high).
+    The AI provides a single suggested creditworthiness (poor, good or standard creditworthiness) for the applicant,
+    together with a confidence level (low, medium, or high).
 </p>
 
 <p>
@@ -103,13 +76,13 @@ The AI support provides additional information that you may consider when making
 {% elif condition == "C3" %}
 
 <p>
-Instead of a single suggestion, the AI shows a set of classes it considers plausible, ordered from the most to the least confident item.
+Instead of a single suggestion, the AI shows a set of creditworthiness levels (poor, standard, good) it considers plausible, ordered from the most to the least confident item.
 The set is constructed so that it is likely to include the correct outcome in 95 of 100 cases.
 </p>
 
 <p>
-When the set contains more classes, the model is less certain.
-When it contains fewer classes, the model is more confident in its prediction.
+When the set contains more levels, the model is less certain.
+When it contains fewer levels, the model is more confident in its prediction.
 The AI support provides additional information that you may consider when making your final decision.
 </p>
 

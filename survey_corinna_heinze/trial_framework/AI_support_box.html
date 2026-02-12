@@ -20,8 +20,8 @@
         </p>
 
         <p>
-            In <strong>{{ ai_correct_predictions }} of 100 similar cases</strong> the AI model predicts this class.
-            In <strong>{{ ai_incorrect_predictions }} cases</strong> the AI model predicts a different class.
+            In <strong>{{ ai_correct_predictions }} of 100 similar cases</strong> the AI model predicts this creditworthiness level.
+            In <strong>{{ ai_incorrect_predictions }} cases</strong> the AI model predicts a different creditworthiness.
         </p>
 
     {% elif condition == "C2" %}
@@ -35,13 +35,13 @@
         </p>
 
         <p>
-            The AI has <strong>{{ ai_confidence_level }}</strong> confidence in this prediction.
+            The AI has {{ ai_confidence_level }} certainty about this prediction.
         </p>
 
     {% elif condition == "C3" %}
 
         <p>
-            Based on the available information, the AI identifies the following outcomes as plausible:
+            Based on the available information, the AI identifies the following levels of creditworthiness as plausible:
         </p>
 
         <p class="ai-prediction">
@@ -49,7 +49,7 @@
         </p>
 
         <p>
-            Out of 100 similar cases, the true outcome was
+            Out of 100 similar cases, the true creditworthiness was
             <strong>included in this set in about {{ cp_coverage_correct }} cases</strong>
             and
             <strong>not included in about {{ cp_coverage_incorrect }} cases</strong>.
