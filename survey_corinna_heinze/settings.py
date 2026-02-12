@@ -7,8 +7,8 @@ SESSION_CONFIGS = [
         app_sequence=[
             "consent",
             "instructions",
-            "checks",
             "example_trials",
+            "checks",
             "main_trials",
             "cognitive_load",
             "control_measures",
