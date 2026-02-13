@@ -27,8 +27,19 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
 
+    check_model_understanding = models.IntegerField(
+        label="According to the explanation, which factors had the strongest influence on the AI’s assessment across cases?",
+        choices=[
+            [1, "Monthly Income"],
+            [2, "Interest Rate"],
+            [3, "Age"],
+        ],
+        widget=widgets.RadioSelect,
+    )
+
     # attempt counters
     attempts_decision_authority = models.IntegerField(initial=0)
+    attempts_model_understanding = models.IntegerField(initial=0)
 
     # exit flag
     failed_checks = models.BooleanField(initial=False)
@@ -37,7 +48,8 @@ class Player(BasePlayer):
 class Checks(Page):
     form_model = "player"
     form_fields = [
-        "check_decision_authority"
+        "check_decision_authority",
+        "check_model_understanding",
     ]
 
     @staticmethod
@@ -56,6 +68,20 @@ class Checks(Page):
 
             errors["check_decision_authority"] = (
                 "This answer is incorrect. Please read the instructions again and try once more."
+            )
+
+        # --- Question 2 ---
+        if values["check_model_understanding"] != 2:
+            attempts = player.field_maybe_none("attempts_model_understanding") or 0
+            attempts += 1
+            player.attempts_model_understanding = attempts
+
+            if attempts > 1:
+                player.failed_checks = True
+                return None
+
+            errors["check_model_understanding"] = (
+                "This answer is incorrect. Please review the explanation and try once more."
             )
 
         return errors
