@@ -36,7 +36,7 @@ FEATURE_CONFIG = {
         "label": "Monthly balance",
         "formatter": format_currency,
         "group": "Financial information",
-        "explanation": "Average unpaid credit card amount per month.",
+        "explanation": "Average unpaid credit card amount per month",
         "order": 5,
     },
     "feat_Num_Credit_Card": {
