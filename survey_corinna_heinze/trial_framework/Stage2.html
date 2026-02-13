@@ -43,6 +43,7 @@ function getTime(){
                 {% if f.explanation %}
                     <span class="feature-tooltip" data-tooltip="{{ f.explanation }}">
                         {{ f.label }}
+                        <span class="tooltip-icon">?</span>
                     </span>
                 {% else %}
                     {{ f.label }}
