@@ -20,26 +20,25 @@ class Player(BasePlayer):
         label="Who makes the final decision in this task?",
         choices=[
             [1, "The AI system"],
-            [2, "You, based only on your own judgment"],
-            [3, "You, after the AI providing a recommendation"],
-            [4, "The system automatically combines your answer with the AI"],
+            [2, "You, after the AI providing a recommendation"],
+            [3, "The system automatically combines your answer with the AI"],
         ],
         widget=widgets.RadioSelect,
     )
 
-    check_model_understanding = models.IntegerField(
-        label="According to the explanation, which factors had the strongest influence on the AI’s assessment across cases?",
+    check_task_domain = models.IntegerField(
+        label="In this task, you take the role of a:",
         choices=[
-            [1, "Monthly Income"],
-            [2, "Interest Rate"],
-            [3, "Age"],
+            [1, "Bank Employee"],
+            [2, "Student"],
+            [3, "Doctor"],
         ],
         widget=widgets.RadioSelect,
     )
 
     # attempt counters
     attempts_decision_authority = models.IntegerField(initial=0)
-    attempts_model_understanding = models.IntegerField(initial=0)
+    attempts_task_domain = models.IntegerField(initial=0)
 
     # exit flag
     failed_checks = models.BooleanField(initial=False)
@@ -49,7 +48,7 @@ class Checks(Page):
     form_model = "player"
     form_fields = [
         "check_decision_authority",
-        "check_model_understanding",
+        "check_task_domain",
     ]
 
     @staticmethod
@@ -57,7 +56,7 @@ class Checks(Page):
         errors = {}
 
         # --- Question 1 ---
-        if values["check_decision_authority"] != 3:
+        if values["check_decision_authority"] != 2:
             attempts = player.field_maybe_none("attempts_decision_authority") or 0
             attempts += 1
             player.attempts_decision_authority = attempts
@@ -67,21 +66,21 @@ class Checks(Page):
                 return None
 
             errors["check_decision_authority"] = (
-                "This answer is incorrect. Please read the instructions again and try once more."
+                "This answer is incorrect. Please try once more."
             )
 
         # --- Question 2 ---
-        if values["check_model_understanding"] != 2:
-            attempts = player.field_maybe_none("attempts_model_understanding") or 0
+        if values["check_task_domain"] != 1:
+            attempts = player.field_maybe_none("check_task_domain") or 0
             attempts += 1
-            player.attempts_model_understanding = attempts
+            player.attempts_task_domain = attempts
 
             if attempts > 1:
                 player.failed_checks = True
                 return None
 
-            errors["check_model_understanding"] = (
-                "This answer is incorrect. Please review the explanation and try once more."
+            errors["check_task_domain"] = (
+                "This answer is incorrect. Please try once more."
             )
 
         return errors
