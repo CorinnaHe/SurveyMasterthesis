@@ -48,7 +48,7 @@ class Consent(Page):
         if "condition" not in player.participant.vars:
             counter = player.session.vars['condition_counter']
 
-            conditions = ["C1", "C2", "C3"]
+            conditions = ["C2", "C3"]
             assigned_condition = conditions[counter % len(conditions)]
 
             player.condition = assigned_condition
