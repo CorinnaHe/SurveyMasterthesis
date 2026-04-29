@@ -1,4 +1,3 @@
-# trial_common.py
 from utils import build_display_features
 
 DECISION_LABELS = {
@@ -22,9 +21,6 @@ CREDIT_EMOJI = {
 
 
 def initialize_player_from_trial(player, trial):
-    """
-    Store trial-specific values exactly once.
-    """
     if player.field_maybe_none("case_id") is not None:
         return
 

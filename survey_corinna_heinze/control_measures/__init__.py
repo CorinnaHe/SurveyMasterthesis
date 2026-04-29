@@ -102,7 +102,7 @@ class Player(BasePlayer):
     )
 
     # -----------------
-    # Risk aversion (SOEP)
+    # Risk aversion
     # -----------------
 
     risk_aversion = models.IntegerField(

@@ -23,10 +23,6 @@ function getTime(){
     {{ trial_number }}/{% if trial_label == 'Main Task' %}15 {% else %}3 {% endif %}
 – Step 2</h3>
 
-<!-- ========================= -->
-<!-- features (table version) -->
-<!-- ========================= -->
-
 <h5>🔍 Applicant {{ trial_number }}</h5>
 
 <table class="feature-overview-vertical">
@@ -56,9 +52,6 @@ function getTime(){
     {% endfor %}
 </table>
 
-<!-- ========================= -->
-<!-- AI support -->
-<!-- ========================= -->
 {% include "trial_framework/AI_support_box.html" %}
 
 <p>
@@ -68,10 +61,6 @@ You initially classified this applicant as:
 <p><strong>→ {{ initial_decision_label }}</strong></p>
 
 <hr>
-
-<!-- ========================= -->
-<!-- Final decision -->
-<!-- ========================= -->
 
 <div class="question-box">
     {{ formfield 'final_decision' }}

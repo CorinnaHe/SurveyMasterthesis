@@ -1,5 +1,3 @@
-import random
-
 from otree.api import *
 
 
@@ -33,7 +31,6 @@ class Player(BasePlayer):
     condition = models.StringField()
 
 
-# PAGES
 class Consent(Page):
     form_model = "player"
     form_fields = ["consent_agree"]

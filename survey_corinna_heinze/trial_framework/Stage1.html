@@ -24,10 +24,6 @@ function getTime(){
     – Step 1
 </h3>
 
-<!-- ========================= -->
-<!-- features (table version) -->
-<!-- ========================= -->
-
 <h4>🔍 Applicant {{ trial_number }}</h4>
 {% if trial_label == 'Practice Task' %}
 <div class="instruction-box">
@@ -68,18 +64,8 @@ function getTime(){
 
 <hr>
 
-
-<!-- ========================= -->
-<!-- initial_decision -->
-<!-- ========================= -->
-
 <div class="question-box">
     {{ formfield 'initial_decision' }}
-
-
-<!-- ========================= -->
-<!-- initial_confidence -->
-<!-- ========================= -->
 
     <p style="margin-top: 30px;">{{form.initial_confidence.label}}</p>
     <table class="table table-bordered text-center scale-table margin-bottom">
